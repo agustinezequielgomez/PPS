@@ -1,0 +1,20 @@
+Primer parcial: 5 apps minimo. Trabajo individual.
+Segundo parcial: Trabajo grupal de 3 personas con delegacion de tareas.
+Todo tiene que presentarse en dispositivo mobile.
+
+INSALAR:
+- Ionic
+- Firebase
+- Android Studio
+
+Crear aplicacion que este corriendo sobre celu que posea 2 pags:
+1ra: Login
+2da: Blanco con algun texto o nada
+
+Login: 
+- textbox para email y pass
+- Aceptar/cancelar
+
+- El login puede no hacer nada 
+- O puede guardarse esa info en el local storage y podria mostrarse en la segunda pags
+- La mejor opcion seria conectarse con firebase y poder hacer el login
