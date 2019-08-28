@@ -6,12 +6,12 @@
                 <ion-row id="login-row">
                     <ion-col size="1"></ion-col>
                     <ion-col size="10">
-                        <ion-list lines="full" class="ion-no-margin">
+                        <ion-list lines="full" class="ion-no-margin" id="content-row">
                             <ion-item>
                                 <ion-label position="stacked">Username</ion-label>
                                 <ion-input type="text" required placeholder="Username" [(ngModel)]="userName"></ion-input>
                             </ion-item>
-                                <app-password></app-password>
+                            <app-password></app-password>
                             <ion-item lines="none">
                                 <ion-checkbox></ion-checkbox>
                                 <ion-label>Guardar usuario</ion-label>
