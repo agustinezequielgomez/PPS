@@ -1,11 +1,46 @@
-#centering-row {
-    margin-top: 10rem;
+* {
+    font-family: 'Montserrat Light';
 }
 
-#login-row {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+#formLogin {
+    margin-top: 1rem;
 }
 
-ion-checkbox {
-    margin-right: 0.5rem;
+.saveUser {
+    margin-left: 1rem;
+    --size: 1rem;
+    font-size: 0.8rem;
 }
+
+#loginButton {
+    margin-top: 2rem;
+    --background: #6200EE;
+    --background-hover: #6d09f8;
+    --background-activated: #7d23fa;
+}
+
+#nameInput {
+    border-bottom: 0.1rem solid var(--ion-color-step-200);
+    margin-bottom: 1rem;
+}
+
+#formLogin,
+#savePass {
+    --background: var(--ion-color-step-50);
+}
+
+#savePassCheck {
+    --background-checked: #7d23fa;
+    --border-color-checked: #7d23fa;
+    --border-color: #6200EE;
+}
+
+ion-label {
+    color: var(--ion-color-step-950);
+}
+
+
+/*ion-input {
+    --color: var(--ion-color-step-950);
+    --placeholder-color: var(--ion-color-step-100);
+}*/

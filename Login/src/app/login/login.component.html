@@ -1,4 +1,4 @@
-<ion-content>
+<!-- <ion-content>
     <ion-grid>
         <ion-row id="centering-row">
             <ion-col size="1"></ion-col>
@@ -25,4 +25,19 @@
             <ion-col size="1"></ion-col>
         </ion-row>
     </ion-grid>
+</ion-content> -->
+
+<ion-content fullscreen>
+    <ion-card id="formLogin">
+        <ion-card-content>
+            <ion-label position="stacked">Nombre de usuario</ion-label>
+            <ion-input type="text" required placeholder="Nombre de usuario" [(ngModel)]="userName" id="nameInput"></ion-input>
+            <app-password></app-password>
+            <ion-row id="savePass">
+                <ion-checkbox id="savePassCheck" class="saveUser"></ion-checkbox>
+                <ion-label id="savePassLbl" class="saveUser">Recordar usuario</ion-label>
+            </ion-row>
+            <ion-button id="loginButton" expand="block">Login</ion-button>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
