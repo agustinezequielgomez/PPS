@@ -11,11 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { PasswordComponent } from './password/password.component';
 import { FormsModule } from '@angular/forms';
+import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireModule } from '@angular/fire';
+import { firebaseConfig } from '../enviroment';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, PasswordComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule],
   providers: [
     StatusBar,
     SplashScreen,

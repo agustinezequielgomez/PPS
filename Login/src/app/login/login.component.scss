@@ -1,9 +1,6 @@
-* {
-    font-family: 'Montserrat Light';
-}
-
 #formLogin {
     margin-top: 1rem;
+    margin-bottom: 5rem;
 }
 
 .saveUser {
@@ -30,17 +27,29 @@
 }
 
 #savePassCheck {
+    --background: var(--ion-color-step-150);
     --background-checked: #7d23fa;
     --border-color-checked: #7d23fa;
-    --border-color: #6200EE;
+    --border-color: var(--ion-color-step-400);
 }
 
 ion-label {
     color: var(--ion-color-step-950);
 }
 
+footer{
+    border-top: 0.1rem solid var(--ion-color-step-100);
+    p
+    {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1rem;
+    }
+}
 
-/*ion-input {
-    --color: var(--ion-color-step-950);
-    --placeholder-color: var(--ion-color-step-100);
-}*/
+.spinner-border
+{
+    color: #6200EE;
+    width: 2rem;
+    height: 2rem;
+}

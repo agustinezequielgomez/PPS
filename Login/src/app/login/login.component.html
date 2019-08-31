@@ -1,43 +1,26 @@
-<!-- <ion-content>
-    <ion-grid>
-        <ion-row id="centering-row">
-            <ion-col size="1"></ion-col>
-            <ion-col size="10">
-                <ion-row id="login-row">
-                    <ion-col size="1"></ion-col>
-                    <ion-col size="10">
-                        <ion-list lines="full" class="ion-no-margin" id="content-row">
-                            <ion-item>
-                                <ion-label position="stacked">Username</ion-label>
-                                <ion-input type="text" required placeholder="Username" [(ngModel)]="userName"></ion-input>
-                            </ion-item>
-                            <app-password></app-password>
-                            <ion-item lines="none">
-                                <ion-checkbox></ion-checkbox>
-                                <ion-label>Guardar usuario</ion-label>
-                            </ion-item>
-                        </ion-list>
-                    </ion-col>
-                    <ion-col size="1"></ion-col>
-                </ion-row>
-                <ion-button expand='block'>Login</ion-button>
-            </ion-col>
-            <ion-col size="1"></ion-col>
-        </ion-row>
-    </ion-grid>
-</ion-content> -->
-
-<ion-content fullscreen>
+<ion-content fullscreen class="animated fadeIn">
     <ion-card id="formLogin">
         <ion-card-content>
             <ion-label position="stacked">Nombre de usuario</ion-label>
-            <ion-input type="text" required placeholder="Nombre de usuario" [(ngModel)]="userName" id="nameInput"></ion-input>
-            <app-password></app-password>
+            <ion-input type="text" required placeholder="Nombre de usuario" [(ngModel)]="userName" id="nameInput"
+                (onkeypress)="checkEmptyInputs()"></ion-input>
+            <app-password (passwordSender)="recievePassword($event)"></app-password>
             <ion-row id="savePass">
-                <ion-checkbox id="savePassCheck" class="saveUser"></ion-checkbox>
+                <ion-checkbox id="savePassCheck" class="saveUser" [(ngModel)]=checkBoxChecked></ion-checkbox>
                 <ion-label id="savePassLbl" class="saveUser">Recordar usuario</ion-label>
             </ion-row>
-            <ion-button id="loginButton" expand="block">Login</ion-button>
+            <ion-button id="loginButton" expand="block" (click)="LoginUser()" [disabled]="checkEmptyInputs()">Login
+            </ion-button>
         </ion-card-content>
     </ion-card>
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border animated fadeIn" role="status" [hidden]=hideSpinner>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
 </ion-content>
+<div class="container-fluid">
+    <footer class="fixed-bottom">
+        <p>Agustín Gómez - &copy; 2019</p>
+    </footer>
+</div>

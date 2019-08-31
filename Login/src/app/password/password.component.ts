@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-password',
@@ -9,6 +9,7 @@ export class PasswordComponent implements OnInit {
 
   type: string;
   password: string;
+  @Output()passwordSender = new EventEmitter<string>();
   constructor() 
   { 
     this.type = 'password';
@@ -24,6 +25,11 @@ export class PasswordComponent implements OnInit {
     {
       this.type = 'password';
     }
+  }
+
+  typePassword()
+  {
+    this.passwordSender.emit(this.password);
   }
 
   ngOnInit() {}
