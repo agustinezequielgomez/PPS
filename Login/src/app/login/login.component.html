@@ -2,8 +2,7 @@
     <ion-card id="formLogin">
         <ion-card-content>
             <ion-label position="stacked">Nombre de usuario</ion-label>
-            <ion-input type="text" required placeholder="Nombre de usuario" [(ngModel)]="userName" id="nameInput"
-                (onkeypress)="checkEmptyInputs()"></ion-input>
+            <ion-input type="text" required placeholder="Nombre de usuario" [(ngModel)]="userName" id="nameInput" (onkeypress)="checkEmptyInputs()"></ion-input>
             <app-password (passwordSender)="recievePassword($event)"></app-password>
             <ion-row id="savePass">
                 <ion-checkbox id="savePassCheck" class="saveUser" [(ngModel)]=checkBoxChecked></ion-checkbox>
@@ -18,9 +17,14 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
+    <!-- <div class="container-fluid">
+        <footer id="footer" class="page-footer">
+            <p id="footerContent">Agustín Gómez - &copy; 2019</p>
+        </footer>
+    </div> -->
 </ion-content>
-<div class="container-fluid">
-    <footer class="fixed-bottom">
-        <p>Agustín Gómez - &copy; 2019</p>
-    </footer>
-</div>
+<ion-footer id="footer">
+    <ion-toolbar>
+        <ion-title id="footerContent">Agustín Gómez - &copy; 2019</ion-title>
+    </ion-toolbar>
+</ion-footer>

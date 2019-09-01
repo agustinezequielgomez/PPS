@@ -1,0 +1,8 @@
+5 apps:
+- 5 login's distintos
+- 5 iconos distintos
+- 5 splash distintos (Apellido, nombre y division)
+- Todo con firebase
+
+
+Todos los iconos si bien son distintos,tienen que tener una relacion implicita entre todos los iconos, como que pertenecen al mismo ecosistema
