@@ -9,29 +9,24 @@ export class PasswordComponent implements OnInit {
 
   type: string;
   password: string;
-  @Output()passwordSender = new EventEmitter<string>();
-  constructor() 
-  { 
+  @Output() passwordSender = new EventEmitter<string>();
+  constructor() {
     this.type = 'password';
   }
 
-  showPasswordMethod(): void
-  {
-    if(this.type === 'password')
-    {
+  showPasswordMethod(): void {
+    if (this.type === 'password') {
       this.type = 'text';
     }
-    else
-    {
+    else {
       this.type = 'password';
     }
   }
 
-  typePassword()
-  {
+  typePassword() {
     this.passwordSender.emit(this.password);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

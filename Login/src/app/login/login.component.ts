@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { DataService } from '../Services/data.service';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-import { Usuario } from '../Classes/usuario';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { firebaseConfig } from '../../enviroment';
+import { AuthService } from '../Services/auth.service';
+import { StoreService } from '../Services/store.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   hideSpinner: boolean;
   checkBoxChecked: boolean;
   constructor(private router: Router, private data: DataService, public toastController: ToastController, private storage: Storage,
-              private afs: AngularFirestore) {
+              private authService: AuthService, private storeService: StoreService) {
     this.hideSpinner = true;
     this.checkBoxChecked = false;
     this.userName = '';
@@ -30,45 +30,34 @@ export class LoginComponent implements OnInit {
     this.data.currentName.subscribe(nombre => this.userName = nombre);
   }
 
+
   public LoginUser(): void {
     this.hideSpinner = false;
-    let success = false;
-    const usuariosCollection = this.afs.collection('usuarios');
-    usuariosCollection.get().subscribe((document) => {
-      document.forEach((usuarios) => {
-        const usuario = [Object.values(usuarios.data())];
-        usuario[0].forEach((usuarioRecorrido) => {
-          if (usuarioRecorrido.username === this.userName && usuarioRecorrido.password === this.password) {
-            success = true;
-            if(this.checkBoxChecked === true)
-            {
-              this.storage.set('logged', true);
-              this.storage.set('name', this.userName);
-            }
-            this.data.sendName(this.userName);
-            this.hideSpinner = true;
-            this.checkBoxChecked = false;
-            this.userName = '';
-            this.password = '';
-            this.router.navigate(['/home']);
-          }
-        });
-      });
-    });
-    setTimeout(() => {
-      if(!success)
-      {
+    this.authService.loginEmailUser(this.userName, this.password)
+      .then((res: firebase.auth.UserCredential) => {
+        this.storage.set('user_data', this.storeService.GetUserData(res.user.uid));
+        if (this.checkBoxChecked === true) {
+          this.storage.set('logged', true);
+          this.storage.set('name', this.userName);
+        }
+        this.data.sendName(this.userName);
         this.hideSpinner = true;
-        this.presentToast();
-      }
-    }, 5000);
+        this.checkBoxChecked = false;
+        this.userName = '';
+        this.password = '';
+        this.router.navigate(['/home']);
+      }).catch((err) => {
+        setTimeout(() => {
+          this.hideSpinner = true;
+          this.presentToast();
+        }, 2000);
+      });
   }
 
   checkEmptyInputs() {
     if (this.userName && this.password) {
       return false;
-    }
-    else {
+    } else {
       return true;
     }
   }
