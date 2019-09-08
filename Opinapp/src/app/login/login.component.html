@@ -1,0 +1,32 @@
+<ion-content id="ionContent" fullscreen class="animated fadeIn">
+    <div class="container-fluid">
+        <ion-card id="formLogin">
+            <ion-card-content>
+                <ion-item lines="none">
+                    <ion-label position="floating">Nombre de usuario</ion-label>
+                    <ion-input clearInput="true" type="text" required [(ngModel)]="userName" id="nameInput" (onkeypress)="checkEmptyInputs()"></ion-input>
+                </ion-item>
+                <app-password (passwordSender)="recievePassword($event)" [password]="this.password"></app-password>
+                <ion-row id="savePass">
+                    <ion-checkbox mode="ios" id="savePassCheck" class="saveUser" [(ngModel)]=checkBoxChecked></ion-checkbox>
+                    <ion-label id="savePassLbl" class="saveUser">Recordar usuario</ion-label>
+                </ion-row>
+                <ion-button id="loginButton" expand="block" (click)="LoginUser()" shape="round" [disabled]="checkEmptyInputs()">Ingresar
+                </ion-button>
+            </ion-card-content>
+        </ion-card>
+        <ion-card id="pickUser">
+            <ion-card-content>
+                <ion-select id="selectUser" [(ngModel)]="pickedName" interface="popover" placeholder="Seleccione un usuario" (ionChange)="pickUser(pickedName)">
+                    <ion-select-option *ngFor="let usuario of users" value="{{usuario.mail}}">{{usuario.mail}}</ion-select-option>
+                </ion-select>
+            </ion-card-content>
+        </ion-card>
+        <ion-progress-bar id="loader" [hidden]="hideSpinner" type="indeterminate"></ion-progress-bar>
+        <ion-toolbar id="footer" class="fixed-bottom">
+            <ion-title id="footerContent">Opinapp - &copy; 2019</ion-title>
+        </ion-toolbar>
+    </div>
+</ion-content>
+<ion-footer mode="ios" translucent=true id="footer">
+</ion-footer>

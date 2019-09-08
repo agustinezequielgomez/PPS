@@ -1,0 +1,7 @@
+{
+    "name": "Pasa el parcial",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "angular"
+}

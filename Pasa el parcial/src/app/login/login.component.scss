@@ -1,0 +1,95 @@
+#ionContent,
+ion-toolbar {
+    --background: var(--ion-light-color-step-100);
+}
+
+#formLogin {
+    margin-top: 1rem;
+    --background: rgba(255, 255, 255, 0.747);
+    //border: 0.05rem solid var(--ion-secondary-background-color);
+}
+
+#pickUser {
+    background-color: rgba(255, 255, 255, 0.747);
+}
+
+.saveUser {
+    margin-left: 1rem;
+    --size: 1rem;
+    font-size: 0.8rem;
+}
+
+#loginButton {
+    margin-top: 2rem;
+    --background: var(--ion-secondary-background-color);
+    --background-hover: var(--ion-secondary-color-step-100);
+    --background-activated: var(--ion-secondary-color-step-200);
+    --background-focused: var(--ion-secondary-color-step-200);
+}
+
+#nameInput {
+    border-bottom: 0.1rem solid var(--ion-secondary-color-step-100);
+    margin-bottom: 1rem;
+    font-family: 'Montserrat Light';
+}
+
+#savePass>ion-label {
+    color: black;
+}
+
+#savePassCheck {
+    --background: var(--ion-color-step-150);
+    --background-checked: var(--ion-secondary-background-color);
+    --border-color-checked: var(--ion-secondary-light-color-step-100);
+    --border-color: var(--ion-color-step-400);
+}
+
+#formLogin>ion-label,
+#formLogin>ion-card-content>ion-label {
+    color: black;
+}
+
+ion-label {
+    color: white;
+    font-family: 'Montserrat Light';
+}
+
+#footer {
+    border-top: 0.1rem solid var(--ion-color-step-100);
+    position: relative absolute;
+    #footerContent {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-size: 1rem;
+    }
+}
+
+#loader {
+    --background: var(--ion-secondary-background-color);
+    --progress-background: var(--ion-secondary-color-step-200);
+    --buffer-background: var(--ion-secondary-color-step-100);
+}
+
+.tech-slideshow {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+.tech-slideshow .mover-1 {
+    height: 10%;
+    width: 1410%;
+    background-image: url('../../../resources/back.png');
+    position: absolute;
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+    animation: moveSlideshow 14s linear infinite;
+}
+
+@keyframes moveSlideshow {
+    100% {
+        transform: translateX(-66.6666%);
+    }
+}
