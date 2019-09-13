@@ -1,0 +1,26 @@
+<ion-content fullscreen class="animated fadeIn">
+    <ion-row id="RowButtons">
+        <ion-button class="loginButtons" *ngFor="let usuario of users" (click)="pickUser(usuario.mail)">{{usuario.mail}}</ion-button>
+    </ion-row>
+    <ion-card id="formLogin">
+        <ion-card-content>
+                <mat-form-field appearance="outline" id="formFieldName">
+                        <mat-label>Nombre de usuario</mat-label>
+                        <input matInput id="nameInput" (onkeypress)="checkEmptyInputs()" [(ngModel)]="userName">
+                </mat-form-field>
+            <app-password (passwordSender)="recievePassword($event)" [password]="this.password"></app-password>
+            <ion-row id="savePass">
+                <ion-checkbox id="savePassCheck" class="saveUser" [(ngModel)]=checkBoxChecked></ion-checkbox>
+                <ion-label id="savePassLbl" class="saveUser">Recordar usuario</ion-label>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+                    <ion-button id="ingresarButton" expand="block" (click)="LoginUser()" [disabled]="checkEmptyInputs()">Ingresar
+                    </ion-button>
+    <mat-progress-bar  [hidden]=hideSpinner mode="indeterminate"></mat-progress-bar>
+</ion-content>
+<ion-footer id="footer">
+    <ion-toolbar>
+        <ion-title id="footerContent">Carga instantanea - &copy; 2019</ion-title>
+    </ion-toolbar>
+</ion-footer>

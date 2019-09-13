@@ -8,7 +8,7 @@
     font-size: 0.8rem;
 }
 
-#loginButton {
+@mixin buttons {
     margin-top: 2rem;
     --background: #6200EE;
     --background-hover: #6d09f8;
@@ -16,10 +16,45 @@
     --border-radius: 1rem;
 }
 
+#ingresarButton
+{
+    @include buttons();
+}
+
+#RowButtons
+{
+    margin-left: 1rem;
+}
+
+.loginButtons
+{
+    @include buttons;
+    max-width: 4rem;
+    padding-right: 1rem;
+    text-align: left;
+}
+
 #nameInput {
-    border-bottom: 0.1rem solid var(--ion-color-step-200);
-    margin-bottom: 1rem;
     font-family: 'Montserrat Light';
+}
+
+#formFieldName
+{
+    width: 100%;
+}
+
+.mat-form-field-empty.mat-form-field-label
+{
+    color:white;
+}
+
+.mat-form-field-outline {
+    background-color: red;
+}
+
+mat-label
+{
+    color:white;
 }
 
 #formLogin,
