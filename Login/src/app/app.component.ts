@@ -13,6 +13,8 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  public showAnimation = false;
+  public showQR = true;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

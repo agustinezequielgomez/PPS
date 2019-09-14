@@ -1,6 +1,7 @@
 #cerrarSesion
 {
-    --background: #6200EE;
-    --background-hover: #6d09f8;
-    --background-activated: #7d23fa;
+    --background: var(--ion-secondary-background-color);
+    --background-hover: var(--ion-secondary-color-step-100);
+    --background-activated: var(--ion-secondary-color-step-250);
+    --border-radius: 1rem;
 }

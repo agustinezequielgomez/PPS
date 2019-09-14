@@ -13,6 +13,11 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  public showAnimation = true;
+  public showShield = false;
+  public showPhone = false;
+  public wobble = false;
+  public text = false;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -27,7 +32,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.storage.get('logged').then((val) => 
+      this.storage.get('logged').then((val) =>
       {
         if(val === true)
         {
@@ -37,7 +42,22 @@ export class AppComponent {
         {
           this.router.navigate(['/login']);
         }
-      })
+      });
+      setTimeout(() => {
+        this.showShield = true;
+      }, 500);
+      setTimeout(() => {
+        this.showPhone = true;
+      }, 1500);
+      setTimeout(() => {
+        this.wobble = true;
+      }, 1900);
+      setTimeout(() => {
+        this.text = true;
+      }, 2500);
+      setTimeout(() => {
+        this.showAnimation = false;
+      }, 10000);
     });
   }
 }

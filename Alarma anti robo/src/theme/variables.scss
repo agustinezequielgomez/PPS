@@ -27,6 +27,32 @@
     --ion-color-step-850: #dededf;
     --ion-color-step-900: #e9e9ea;
     --ion-color-step-950: #f4f4f4;
+
+    --ion-secondary-background-color: #fe3e00;
+    --ion-secondary-background-color-rgb: 254,62,0;
+  
+    --ion-secondary-text-color: #ffffff;
+    --ion-secondary-text-color-rgb: 255,255,255;
+  
+    --ion-secondary-color-step-50: #fe480d;
+    --ion-secondary-color-step-100: #fe511a;
+    --ion-secondary-color-step-150: #fe5b26;
+    --ion-secondary-color-step-200: #fe6533;
+    --ion-secondary-color-step-250: #fe6e40;
+    --ion-secondary-color-step-300: #fe784d;
+    --ion-secondary-color-step-350: #fe8259;
+    --ion-secondary-color-step-400: #fe8b66;
+    --ion-secondary-color-step-450: #fe9573;
+    --ion-secondary-color-step-500: #ff9f80;
+    --ion-secondary-color-step-550: #ffa88c;
+    --ion-secondary-color-step-600: #ffb299;
+    --ion-secondary-color-step-650: #ffbba6;
+    --ion-secondary-color-step-700: #ffc5b3;
+    --ion-secondary-color-step-750: #ffcfbf;
+    --ion-secondary-color-step-800: #ffd8cc;
+    --ion-secondary-color-step-850: #ffe2d9;
+    --ion-secondary-color-step-900: #ffece6;
+    --ion-secondary-color-step-950: #fff5f2;
     /** primary **/
     --ion-color-primary: #3880ff;
     --ion-color-primary-rgb: 56, 128, 255;
@@ -94,6 +120,8 @@
 
 $colors: ( "dark": #444444, "background-dark": #121212, "dark-login": #1e1e1e);
 @font-face {
-    font-family: 'Montserrat Light';
-    src: url('../assets/Fonts/Montserrat/Montserrat-Light.ttf');
+    font-family: 'Gotham';
+    src: url('../assets/Fonts/gotham_ssv/Gotham-Medium.otf');
+    font-family: 'Gotham-Ultra';
+    src: url('../assets/Fonts/gotham_ssv/GothamNarrow-Ultra.otf');
 }

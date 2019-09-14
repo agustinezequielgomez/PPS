@@ -9,10 +9,84 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
- @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* For use in src/lib/core/theming/_palette.scss */
+$md-main: (
+    50 : #ffe8e0,
+    100 : #ffc5b3,
+    200 : #ff9f80,
+    300 : #fe784d,
+    400 : #fe5b26,
+    500 : #fe3e00,
+    600 : #fe3800,
+    700 : #fe3000,
+    800 : #fe2800,
+    900 : #fd1b00,
+    A100 : #ffffff,
+    A200 : #fff1f1,
+    A400 : #ffc1be,
+    A700 : #ffa9a4,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-secondary: (
+    50 : #e5e5e5,
+    100 : #bfbfbf,
+    200 : #949494,
+    300 : #696969,
+    400 : #484848,
+    500 : #282828,
+    600 : #242424,
+    700 : #1e1e1e,
+    800 : #181818,
+    900 : #0f0f0f,
+    A100 : #ee6767,
+    A200 : #e93a3a,
+    A400 : #f00000,
+    A700 : #d60000,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+$app-primary: mat-palette($md-main);
+$app-secondary:  mat-palette($md-secondary);
+
+$anti-theft-theme: mat-light-theme($app-primary, $app-secondary);
+@include angular-material-theme($anti-theft-theme);
 
 * {
-    font-family: 'Montserrat Light';
+    font-family: 'Gotham';
 }
 
 .animated {
