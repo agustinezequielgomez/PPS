@@ -13,8 +13,9 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  public showAnimation = false;
+  public showAnimation = true;
   public showQR = true;
+  public scan = true;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -41,5 +42,8 @@ export class AppComponent {
         }
       })
     });
+    setTimeout(() => {
+      this.scan = false;
+    }, 500);
   }
 }

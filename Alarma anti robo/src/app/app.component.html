@@ -1,12 +1,10 @@
 <ion-app>
-  <div *ngIf="showAnimation" class="splash">
-    <p class="slide-in-blurred-right" *ngIf="this.text">ALARMA ANTIROBO</p>
-    <div>
-      <img id="shield" src="../assets/shield.png" class="img-fluid puff-in-center"
-        [class.wobble-hor-bottom]="this.wobble == true" *ngIf="this.showShield">
-      <img id="phone" src="../assets/phone.png" class="img-fluid puff-in-center"
-        [class.wobble-hor-bottom]="this.wobble == true" *ngIf="this.showPhone">
+    <div *ngIf="showAnimation" class="splash">
+        <p class="slide-in-blurred-right" *ngIf="this.text">ALARMA ANTIROBO</p>
+        <div>
+            <img id="shield" src="../assets/shield.png" class="img-fluid animation-target" [class.wobble-hor-bottom]="this.wobble == true" *ngIf="this.showShield">
+            <img id="phone" src="../assets/phone.png" class="img-fluid animation-target" [class.wobble-hor-bottom]="this.wobble == true" *ngIf="this.showPhone">
+        </div>
     </div>
-  </div>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-router-outlet></ion-router-outlet>
 </ion-app>

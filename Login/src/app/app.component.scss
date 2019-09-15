@@ -1,5 +1,4 @@
-.splash
-{
+.splash {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -10,9 +9,7 @@
     background: linear-gradient(90deg, #6200ee 50%, #222428 50%);
 }
 
-
-#shield
-{
+@mixin shield {
     position: relative;
     left: 30%;
     height: 40%;
@@ -20,18 +17,19 @@
     object-fit: cover;
 }
 
-.scan
-{
-    width: 42%;
-    height: 20%;
-    position: relative;
-    left: 29%;
-    background-color: rgba(47, 179, 223, 0.691);
-    transition-property: transform 10s ease-in-out;
+#shield {
+    @include shield();
 }
 
-.scan:hover
-{
-    transform: translate(0%,100px);
+.scan {
+    @include shield();
+    top: 56%;
+    background-color: rgba(47, 179, 223, 0.691);
+    transition: transform 5s ease-in-out;
+    z-index: 900;
+}
 
+.aux {
+    -webkit-transition: none !important;
+    transform: translate(0%, -19rem);
 }

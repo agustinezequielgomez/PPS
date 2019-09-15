@@ -1,10 +1,10 @@
 <ion-app>
-        <div *ngIf="showAnimation" class="splash">
-          <div>
-            <div class="scan"><br></div>
+    <div *ngIf="showAnimation" class="splash">
+        <div>
             <img id="shield" src="../assets/qr.png" class="img-fluid puff-in-center" *ngIf="this.showQR">
-          </div>
+            <div class="scan" [class.aux]="this.scan == true"><br></div>
         </div>
-        <ion-router-outlet></ion-router-outlet>
-  <ion-router-outlet></ion-router-outlet>
+    </div>
+    <ion-router-outlet></ion-router-outlet>
+    <ion-router-outlet></ion-router-outlet>
 </ion-app>
