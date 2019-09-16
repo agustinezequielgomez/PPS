@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { timer } from 'rxjs';
+
 
 
 @Component({
@@ -16,6 +18,8 @@ export class AppComponent {
   public showAnimation = true;
   public showQR = true;
   public scan = true;
+  public showMoney = false;
+  public fadeOutAnimation = false;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -30,7 +34,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.storage.get('logged').then((val) => 
+      this.storage.get('logged').then((val) =>
       {
         if(val === true)
         {
@@ -40,10 +44,16 @@ export class AppComponent {
         {
           this.router.navigate(['/login']);
         }
-      })
+      });
+      this.animateSplash();
     });
-    setTimeout(() => {
-      this.scan = false;
-    }, 500);
+  }
+
+  animateSplash()
+  {
+    timer(500).subscribe(() => this.scan = false);
+    timer(3000).subscribe(() => this.showMoney = true);
+    timer(5000).subscribe(() => this.fadeOutAnimation = true);
+    timer(6500).subscribe(() => this.showAnimation = false);
   }
 }

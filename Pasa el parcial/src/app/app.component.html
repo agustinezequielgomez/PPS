@@ -1,3 +1,9 @@
 <ion-app>
+    <div *ngIf="showAnimation" class="splash" [class.driveOutTop]="this.fadeOutAnimation == true" [class.vivify]="this.fadeOutAnimation == true">
+          <img src="../assets/msj1.png" id="msj1" class="img-fluid vivify popInLeft" *ngIf="this.message1">
+          <img src="../assets/msj2.png" id="msj2" class="img-fluid vivify popInRight" *ngIf="this.message2">
+          <img src="../assets/msj3.png" id="msj3" class="img-fluid vivify popInLeft" *ngIf="this.message3">
+          <p class="tracking-in-expand" id="title" *ngIf="this.title">Pasa el parcial</p>
+    </div>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

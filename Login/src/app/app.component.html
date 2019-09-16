@@ -1,10 +1,10 @@
 <ion-app>
-    <div *ngIf="showAnimation" class="splash">
+    <div *ngIf="showAnimation" class="splash" [class.driveOutLeft]="this.fadeOutAnimation == true" [class.vivify]="this.fadeOutAnimation == true">
         <div>
-            <img id="shield" src="../assets/qr.png" class="img-fluid puff-in-center" *ngIf="this.showQR">
-            <div class="scan" [class.aux]="this.scan == true"><br></div>
+            <img id="qr" src="../assets/qr.png" class="img-fluid" *ngIf="this.showQR">
+            <div class="scan" [class.aux]="this.scan == true"></div>
+            <img id="money" src="../assets/money.png" class="img-fluid vivify popIn" *ngIf="this.showMoney">
         </div>
     </div>
-    <ion-router-outlet></ion-router-outlet>
     <ion-router-outlet></ion-router-outlet>
 </ion-app>

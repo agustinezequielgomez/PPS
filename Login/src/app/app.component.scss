@@ -11,13 +11,13 @@
 
 @mixin shield {
     position: relative;
-    left: 30%;
-    height: 40%;
-    width: 40%;
+    left: 25%;
+    height: 50%;
+    width: 50%;
     object-fit: cover;
 }
 
-#shield {
+#qr {
     @include shield();
 }
 
@@ -26,10 +26,24 @@
     top: 56%;
     background-color: rgba(47, 179, 223, 0.691);
     transition: transform 5s ease-in-out;
-    z-index: 900;
+    z-index: 3;
+    height: 2vh;
+}
+
+#money
+{
+    // @include shield();
+    position: absolute;
+    object-fit: contain;
+    height: 30%;
+    width: 30%;
+    left: 12%;
+    top: 50%;
+    z-index: 50;
+
 }
 
 .aux {
     -webkit-transition: none !important;
-    transform: translate(0%, -19rem);
+    transform: translate(0%, -27vh);
 }

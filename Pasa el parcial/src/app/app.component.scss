@@ -1,0 +1,67 @@
+.splash {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #039be5 50%, #fca929 50%);
+}
+
+#msj1
+{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    left: 9%;
+    top: -10%;
+    object-fit: contain;
+}
+
+#msj2 
+{
+    position: absolute;
+    width: 49%;
+    height: 49%;
+    left: 50%;
+    top: 18%;
+    object-fit: contain;
+}
+
+#msj3
+{
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    left: 5%;
+    top: 27%;
+    object-fit: contain;
+}
+
+#title
+{
+    position: absolute;
+    top: 70%;
+    font-size: 220%;
+    text-align: center;
+    color: white;
+}
+
+.tracking-in-expand {
+	animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+ @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
