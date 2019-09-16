@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { timer } from 'rxjs';
 
 
 @Component({
@@ -13,6 +14,11 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  public showAnimation = true;
+  public goodBuilding = false;
+  public badBuilding = false;
+  public Opinapp = false;
+  public fadeOutAnimation = false;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -37,7 +43,9 @@ export class AppComponent {
         {
           this.router.navigate(['/login']);
         }
-      })
+      });
+      timer(3000).subscribe(() => this.Opinapp = true);
+      timer(3500).subscribe(() => this.Opinapp = false);
     });
   }
 }

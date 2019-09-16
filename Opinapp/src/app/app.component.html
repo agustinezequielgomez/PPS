@@ -1,3 +1,6 @@
 <ion-app>
+    <div *ngIf="showAnimation" class="splash" [class.flash]="this.Opinapp == true" [class.swoopOutTop]="this.fadeOutAnimation == true" [class.vivify]="this.fadeOutAnimation == true">
+      <div class="flash" id="flash" *ngIf="this.Opinapp == true"></div>
+  </div>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
