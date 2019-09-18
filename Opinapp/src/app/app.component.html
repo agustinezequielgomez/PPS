@@ -1,6 +1,10 @@
 <ion-app>
-    <div *ngIf="showAnimation" class="splash" [class.flash]="this.Opinapp == true" [class.swoopOutTop]="this.fadeOutAnimation == true" [class.vivify]="this.fadeOutAnimation == true">
-      <div class="flash" id="flash" *ngIf="this.Opinapp == true"></div>
+    <div *ngIf="showAnimation" class="splash" [class.popOutTop]="this.fadeOutAnimation == true" [class.vivify]="this.fadeOutAnimation == true">
+      <div class="flash" id="flash" *ngIf="this.flash == true"></div>
+      <img *ngIf="this.goodBuilding" src="../assets/edificio bien.png" id="edificioBien" class="vivify swoopInLeft duration-1250 img-fluid" alt="">
+      <img *ngIf="this.badBuilding" src="../assets/edificio mal.png" id="edificioMal" class="vivify swoopInRight duration-1250 img-fluid" alt="">
+      <img *ngIf="this.completeBuilding" src="../assets/edificio completo.png" id="edificioCompleto" class="img-fluid" alt="">
+      <p *ngIf="this.completeBuilding" id="title" class="text-center">Opinapp</p>
   </div>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

@@ -5,6 +5,7 @@ import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../Services/auth.service';
 import { StoreService } from '../Services/store.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   // DOM Handling
   hideSpinner: boolean;
   checkBoxChecked: boolean;
+  showLogin = false;
 
   // Users
   public users: any[] = [{mail: 'admin@admin.com', clave: '111111'}, {mail: 'invitado@invitado.com', clave: '222222'},
@@ -37,6 +39,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.data.currentName.subscribe(nombre => this.userName = nombre);
+    timer(4000).subscribe(() => this.showLogin = true);
   }
 
 

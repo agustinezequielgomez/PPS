@@ -15,9 +15,11 @@ import { timer } from 'rxjs';
 })
 export class AppComponent {
   public showAnimation = true;
-  public goodBuilding = false;
-  public badBuilding = false;
-  public Opinapp = false;
+  public goodBuilding = true;
+  public badBuilding = true;
+  public flash = false;
+  public Opinapp = true;
+  public completeBuilding = false;
   public fadeOutAnimation = false;
   constructor(
     private platform: Platform,
@@ -33,19 +35,29 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.storage.get('logged').then((val) => 
+      this.storage.get('logged').then((val) =>
       {
-        if(val === true)
-        {
+        if (val === true) {
           this.router.navigate(['/home']);
-        }
-        else
-        {
+        } else {
           this.router.navigate(['/login']);
         }
       });
-      timer(3000).subscribe(() => this.Opinapp = true);
-      timer(3500).subscribe(() => this.Opinapp = false);
+      timer(850).subscribe(() => {
+        this.goodBuilding = false;
+        this.badBuilding = false;
+        });
+      timer(800).subscribe(() => {
+        this.flash = true;
+        const AUDIO = new Audio();
+        AUDIO.src = ('../assets/flash.flac');
+        AUDIO.load();
+        AUDIO.play();
+        this.completeBuilding = true;
+      });
+      timer(2500).subscribe(() => this.flash = false);
+      timer(4500).subscribe(() => this.fadeOutAnimation = true);
+      timer(4800).subscribe(() => this.showAnimation = false);
     });
   }
 }

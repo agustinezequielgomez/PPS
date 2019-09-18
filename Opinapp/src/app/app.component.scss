@@ -9,11 +9,19 @@
     background: linear-gradient(90deg, #00ffff 50%, #ff0000 50%);
 }
 
+@mixin edificios {
+    position: absolute;
+    width: 35%;
+    height: 35%;
+    object-fit: contain;
+}
+
 #flash
 {
     width: 100%;
     height: 100%;
     z-index: 20;
+    position: absolute;
 }
 
 .flash
@@ -21,6 +29,19 @@
     animation: flash;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
+}
+
+#title
+{
+    color: white;
+    position: absolute;
+    top: 70%;
+    font-size: 300%;
+}
+
+#edificioBien, #edificioMal, #edificioCompleto
+{
+    @include edificios();
 }
 
 @keyframes flash
