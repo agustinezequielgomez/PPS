@@ -1,0 +1,243 @@
+@import '../../global.scss';
+
+#formLogin {
+    margin-top: 1rem;
+    background-color: #00c843;
+    border: .15rem solid white;
+    box-shadow: none;
+}
+
+.saveUser {
+    margin-left: 1rem;
+    --size: 1rem;
+    font-size: 160%;
+    font-family: 'Billy';
+}
+
+#savePassLbl
+{
+    position: absolute;
+    color: white;
+    left: 15%;
+    top: 63%;
+}
+
+#ingresarButton
+{
+    @include buttons();
+    --border-width: .2rem;
+    font-size: 160%;
+}
+
+#RowButtons
+{
+    margin-left: 1rem;
+}
+
+.loginButtons
+{
+    @include buttons;
+    max-width: 4rem;
+    padding-right: 1rem;
+    text-align: left;
+    --border-width: .1rem;
+}
+
+#nameInput {
+    font-family: 'Billy';
+    background-color: var(--ion-secondary-background-color);
+    border-radius: 1rem;
+    width: 100%;
+    font-size: 160%;
+    margin-bottom: 2%;
+    padding: 0 2%;
+    border-color: white;
+    border-width: .2rem;
+    color: white;
+}
+
+
+
+#formFieldName
+{
+    width: 100%;
+}
+
+
+#formLogin,
+#savePass {
+    --background: var(--ion-color-step-50);
+}
+
+#savePassCheck {
+    --background: var(--ion-color-step-150);
+    --background-checked:  var(--ion-secondary-background-color);;
+    --border-color-checked:  var(--ion-secondary-background-color);;
+    --border-color: var(--ion-color-step-400);
+}
+
+#footer {
+    border-top: 0.1rem solid var(--ion-color-step-100);
+    position: relative absolute;
+    #footerContent {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-size: 140%;
+    }
+}
+
+img[src=""]
+{
+    display:none;
+}
+
+#icon
+{
+    position: relative;
+    margin-left: 1%;
+}
+
+.rocket-fly
+{
+    animation: rocketFly;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes rocketFly
+{
+    0%
+    {
+        transform: rotate(0deg);
+        transform: translate(0%);
+    }
+
+    15%
+    {
+        transform: rotate(45deg);
+    }
+
+    100%
+    {
+        transform: rotate(45deg);
+        transform: translate(1000%);
+    }
+}
+
+.imgBack
+{
+    position: absolute;
+    z-index: 20;
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.right-left
+{
+    transform: rotate(285deg);
+    right: -70%;
+    top: (random(50)) + vh;
+    animation: rightLeft 8s ease-in-out;
+}
+
+@keyframes rightLeft
+{
+    0%
+    {
+        transform: translate(0,0) rotate(285deg);
+    }
+
+    5%
+    {
+        transform: translate(-90%,0) rotate(285deg);
+    }
+
+    90%
+    {
+        transform: translate(-90%,0) rotate(285deg);
+    }
+
+    100%
+    {
+        transform: translate(70%,0) rotate(285deg);
+    }
+}
+
+.left-right
+{
+    transform: rotate(90deg);
+    left: -70%;
+    top: (random(50)) + vh;
+    animation: leftRight 8s ease-in-out;
+}
+
+@keyframes leftRight
+{
+    0%
+    {
+        transform: translate(0,0) rotate(90deg);
+    }
+
+    5%
+    {
+        transform: translate(90%,0) rotate(90deg);
+    }
+
+    90%
+    {
+        transform: translate(90%,0) rotate(90deg);
+    }
+
+    100%
+    {
+        transform: translate(-70%,0) rotate(90deg);
+    }
+}
+
+@keyframes topDown
+{
+    0%
+    {
+        transform: translate(0,0) rotate(180deg);
+    }
+
+    5%
+    {
+        transform: translate(0,70%) rotate(180deg);
+    }
+
+    90%
+    {
+        transform: translate(0,70%) rotate(180deg);
+    }
+
+    100%
+    {
+        transform: translate(0,-50%) rotate(180deg);
+    }
+}
+
+.top-down
+{
+    transform: rotate(180deg);
+    top: -50%;
+    animation: topDown 8s ease-in-out;
+    left: (random(50)) + vh;
+}
+
+.yellow
+{
+    background-color: yellow;
+}
+
+.blue
+{
+    background-color: blue;
+}
+
+.white
+{
+    background-color: white;
+}

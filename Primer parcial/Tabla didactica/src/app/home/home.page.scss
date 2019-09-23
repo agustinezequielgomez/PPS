@@ -1,0 +1,71 @@
+@import '../../global.scss';
+
+#cerrarSesion
+{
+    @include buttons();
+    margin-top: 0;
+    margin-bottom: 1%;
+    font-size: 120%;
+    left: 50%;
+}
+
+
+ion-fab-button
+{
+    @include buttons();
+    --border-radius: 2rem;
+    --border-width: .2rem;
+    margin-top: 0;
+}
+
+ion-col
+{
+    --ion-grid-column-padding: 0;
+}
+
+.gridSm
+{
+    margin-top: 12%;
+}
+
+.gridXs
+{
+    margin-top: 20%;
+}
+
+.imgCard
+{
+    border-width: .1rem;
+    border-style: solid;
+    border-color: white;
+    margin: 1%;
+}
+
+#CARDIMAGE
+{
+    width: 50%;
+    height: 50%;
+}
+
+#listButton
+{
+    --padding-bottom: 1%;
+}
+
+@keyframes pulse {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+  
+    50% {
+      transform: scale3d(1.20, 1.20, 1.20);
+    }
+  
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  .pulse {
+    animation: pulse 3s ease-in-out infinite;
+  }

@@ -1,0 +1,25 @@
+<ion-content fullscreen class="animated fadeIn">
+    <img [src]="this.pickedImg" class="imgBack img-fluid {{this.pickedClass}}">
+    <ion-row id="RowButtons">
+        <ion-button class="loginButtons" *ngFor="let usuario of users" (click)="pickUser(usuario.mail)">{{usuario.nombre}}</ion-button>
+    </ion-row>
+    <ion-card id="formLogin">
+        <ion-card-content>
+            <input type="text" placeholder="Nombre de usuario" class="form-control form-rounded" id="nameInput" (onkeypress)="checkEmptyInputs()" [(ngModel)]="userName">
+            <app-password (passwordSender)="recievePassword($event)" [password]="this.password"></app-password>
+            <ion-row id="savePass">
+                <ion-checkbox id="savePassCheck" class="saveUser" [(ngModel)]=checkBoxChecked></ion-checkbox>
+                <ion-label id="savePassLbl" class="saveUser">Recordar usuario</ion-label>
+            </ion-row>
+            <ion-button id="ingresarButton" expand="block" (click)="LoginUser()" [disabled]="checkEmptyInputs()">Ingresar
+                    <ion-icon [class.rocket-fly]="this.hideSpinner == false" id="icon" name="ios-rocket"></ion-icon>
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
+    <mat-progress-bar [hidden]="hideSpinner" mode="indeterminate"></mat-progress-bar>
+</ion-content>
+<ion-footer id="footer">
+    <ion-toolbar>
+        <ion-title id="footerContent">Aprendizaje Didactico - &copy; 2019</ion-title>
+    </ion-toolbar>
+</ion-footer>
