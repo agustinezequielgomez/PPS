@@ -9,7 +9,7 @@
 <ion-content class="animated fadeIn">
     <ion-fab vertical="top" horizontal="start">
         <ion-fab-button (click)="playClick()" [class.pulse]="this.pickedLanguage == false">
-          <ion-icon *ngIf="this.currentLanguageImgPath === '' else languageChoosen" name="globe"></ion-icon>
+          <ion-icon *ngIf="this.currentLanguage.path === '' else languageChoosen" name="globe"></ion-icon>
         </ion-fab-button>
         <ion-fab-list>
           <ion-fab-button id="listButton" (click)="this.selectLanguage(language)" *ngFor="let language of this.languages">
@@ -19,7 +19,7 @@
       </ion-fab>
       <ion-fab vertical="top" horizontal="end">
         <ion-fab-button (click)="playClick()" [class.pulse]="this.pickedElement == false">
-          <ion-icon *ngIf="this.currentElementImgPath === '' else elementChoosen" name="star"></ion-icon>
+          <ion-icon *ngIf="this.currentElement.path === '' else elementChoosen" name="star"></ion-icon>
         </ion-fab-button>
         <ion-fab-list>
           <ion-fab-button id="listButton" (click)="this.selectElement(element)" *ngFor="let element of this.elements">
@@ -29,9 +29,9 @@
       </ion-fab>
   <ion-grid [ngClass]="{'gridXs': this.isXs(), 'gridSm': !this.isXs()}" id="grid">
     <ion-row>
-      <ion-col *ngFor="let animal of this.animals" size-xs="6" size-sm="4" size-md="3">
-        <ion-card class="imgCard" [button]="true">
-          <img id="CARDIMAGE" class="mx-auto d-block" src="{{animal.path}}" alt="">
+      <ion-col *ngFor="let elements of this.displayElements" size-xs="6" size-sm="4" size-md="3">
+        <ion-card *ngIf="!this.changingElements" class="cardButton vivify" [class.popInBottom]="this.changeElements" [class.popOutBottom]="this.outElements" [button]="true" (click)="this.playSound(elements.sound)">
+          <img [ngClass]="{'cardImgXs': !this.isXs(), 'cardImgSm': this.isXs()}" class="mx-auto d-block" src="{{elements.path}}" alt="">
         </ion-card>
       </ion-col>
     </ion-row>
@@ -40,9 +40,9 @@
 
 
 <ng-template #languageChoosen>
-  <img src="{{this.currentLanguageImgPath}}">
+  <img src="{{this.currentLanguage.path}}">
 </ng-template>
 
 <ng-template #elementChoosen>
-  <img src="{{this.currentElementImgPath}}">
+  <img src="{{this.currentElement.path}}">
 </ng-template>

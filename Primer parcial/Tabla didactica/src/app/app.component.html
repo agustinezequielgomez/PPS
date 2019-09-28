@@ -1,10 +1,10 @@
 <ion-app>
-    <!-- <div *ngIf="showAnimation" class="splash" [class.bounceOut]="this.bounceOut == true">
-        <p class="vivify swoopInRight" *ngIf="this.text">ALARMA ANTIROBO</p>
+    <div *ngIf="showAnimation" class="splash" [class.flip-out-hor-top]="this.bounceOut == true">
         <div>
-            <img id="shield" src="../assets/shield.png" class="img-fluid bounceIn" [class.shake]="this.wobble == true" *ngIf="this.showShield">
-            <img id="phone" src="../assets/phone.png" class="img-fluid bounceIn" *ngIf="this.showPhone">
+            <img class="imgFlag vivify driveInLeft duration-1500" src="../assets/flags/arg_splash.png" alt="">
+            <img class="imgFlag vivify driveInTop delay-100 duration-1500" src="../assets/flags/eng_splash.png" alt="">
+            <img class="imgFlag vivify driveInRight duration-2000" src="../assets/flags/br_splash.png" alt="">
         </div>
-    </div> -->
+    </div>
     <ion-router-outlet></ion-router-outlet>
 </ion-app>

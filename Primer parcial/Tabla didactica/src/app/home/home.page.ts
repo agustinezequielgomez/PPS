@@ -16,11 +16,14 @@ export class HomePage implements OnInit {
   public assetsBasePath = '../../assets/';
   public languages: any[];
   public elements: any[];
-  public currentLanguageImgPath = '';
-  public currentElementImgPath = '';
+  public currentLanguage = {language: '', path: ''};
+  public currentElement = {element: '', path: ''};
   public pickedElement = false;
   public pickedLanguage = false;
-  public animals: any[];
+  public displayElements: any[];
+  public changeElements = false;
+  public changingElements = false;
+  public outElements = false;
   constructor(private data: DataService, private router: Router, private storage: Storage, private authService: AuthService,
               private platform: Platform) {
   }
@@ -28,37 +31,53 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.languages = this.data.getFabLanguages();
     this.elements = this.data.getFabElements();
-    this.animals = this.data.getAnimals();
-
   }
 
   selectLanguage(language: any) {
     this.playClick();
-    this.currentLanguageImgPath = language.path;
+    this.currentLanguage = language;
     this.pickedLanguage = true;
+    this.selectDisplayElements();
   }
 
   selectElement(element: any) {
     this.playClick();
-    this.currentElementImgPath = element.path;
+    this.currentElement = element;
     this.pickedElement = true;
+    this.outElements = true;
+    timer(500).subscribe(() => {
+      this.changingElements = true;
+      this.outElements = false;
+      this.changeElements = true;
+    });
+    timer(800).subscribe(() => {
+      this.selectDisplayElements();
+      this.changingElements = false;
+    });
+    timer(1400).subscribe(() => {
+      this.changeElements = false;
+    });
   }
 
-  playSound(path: string)
-  {
+  playSound(path: string) {
     const AUDIO = new Audio();
     AUDIO.src = path;
     AUDIO.load();
     AUDIO.play();
   }
 
-  playClick()
-  {
+  playClick() {
     this.playSound(`${this.data.getAssetsBasePath()}/sounds/click.wav`);
   }
 
   isXs() {
     return (this.platform.width() < 576);
+  }
+
+  selectDisplayElements() {
+    if (this.pickedElement === true && this.pickedLanguage === true) {
+      this.displayElements = this.data.getDisplayCardElements(this.currentLanguage.language, this.currentElement.element);
+    }
   }
 
   cerrarSesion() {

@@ -15,10 +15,6 @@ import { timer } from 'rxjs';
 })
 export class AppComponent {
   public showAnimation = true;
-  public showShield = false;
-  public showPhone = false;
-  public wobble = false;
-  public text = false;
   public bounceOut = false;
   constructor(
     private platform: Platform,
@@ -46,10 +42,6 @@ export class AppComponent {
 }
 
 handleAnimations() {
-  timer(500).subscribe(() => this.showShield = true);
-  timer(1500).subscribe(() => this.showPhone = true);
-  timer(1700).subscribe(() => this.wobble = true);
-  timer(2500).subscribe(() => this.text = true);
   timer(4000).subscribe(() => this.bounceOut = true);
   timer(4750).subscribe(() => this.showAnimation = false);
 }

@@ -23,6 +23,27 @@ ion-col
     --ion-grid-column-padding: 0;
 }
 
+.cardButton
+{
+    border-width: .1rem;
+    border-style: solid;
+    border-color: white;
+    background-color: var(--ion-secondary-background-color);
+    margin: 1%;
+}
+
+.cardImgXs
+{
+    width: 50%;
+    height: 50%;
+}
+
+.cardImgSm
+{
+  width: 75%;
+  height: 75%;
+}
+
 .gridSm
 {
     margin-top: 12%;
@@ -31,20 +52,6 @@ ion-col
 .gridXs
 {
     margin-top: 20%;
-}
-
-.imgCard
-{
-    border-width: .1rem;
-    border-style: solid;
-    border-color: white;
-    margin: 1%;
-}
-
-#CARDIMAGE
-{
-    width: 50%;
-    height: 50%;
 }
 
 #listButton
