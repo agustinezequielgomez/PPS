@@ -8,8 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './login/login.component';
-import { PasswordComponent } from './password/password.component';
+import { LoginComponent } from './Components/login/login.component';
+import { PasswordComponent } from './Components/password/password.component';
 import { FormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireModule } from '@angular/fire';

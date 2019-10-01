@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from '../Services/data.service';
+import { DataService } from '../../Services/data.service';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-import { AuthService } from '../Services/auth.service';
-import { StoreService } from '../Services/store.service';
+import { AuthService } from '../../Services/auth.service';
+import { StoreService } from '../../Services/store.service';
 import { timer } from 'rxjs';
 
 @Component({

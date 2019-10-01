@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../Services/data.service';
+import { DataService } from '../../Services/data.service';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
-import { AuthService } from '../Services/auth.service';
+import { AuthService } from '../../Services/auth.service';
 
 @Component({
   selector: 'app-home',
