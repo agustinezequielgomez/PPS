@@ -1,14 +1,11 @@
 <ion-header class="animated fadeIn">
   <ion-toolbar>
     <ion-title>
-      ¡Bienvenido!
+      <ion-button id='cerrarSesion' (click)="cerrarSesion()" expand="block">Cerrar sesion</ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="animated fadeIn">
-  <div class="ion-padding">
-    <p>Bienvenido a la app, {{userName}}</p>
-  </div>
-  <ion-button id='cerrarSesion' (click)="cerrarSesion()" expand="block">Cerrar sesion</ion-button>
+<ion-button [shape]="'round'" (click)="this.changeState()" [ngClass]="{'activatedButton flash': this.activated, 'deactivateButton': !this.activated}">{{this.text}}</ion-button>
 </ion-content>

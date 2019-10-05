@@ -5,3 +5,48 @@
     --background-activated: var(--ion-secondary-color-step-250);
     --border-radius: 1rem;
 }
+
+@mixin activateButton
+{
+    width: 80%;
+    height: 55%;
+    --border-radius: 100%;
+    position: absolute;
+    left: 10%;
+
+}
+
+.activatedButton
+{
+    @include activateButton();
+    --ripple-color: rgb(0, 255, 0);
+    --background: var(--ion-secondary-background-color);
+    --background-hover: var(--ion-secondary-color-step-100);
+    --background-activated: var(--ion-secondary-color-step-250);
+}
+
+.deactivateButton
+{
+    @include activateButton();
+    --riplple-color: red;    
+    --background: #0dfe49;
+    --background-hover: #00fb00;
+    --background-activated: #00e900;
+}
+
+@keyframes flash {
+    from,
+    50%,
+    to {
+      opacity: 1;
+    }
+  
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }
+  
+  .flash {
+    animation: flash 3s infinite ease-in-out;
+  }

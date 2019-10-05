@@ -20,8 +20,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PasswordComponent } from './password/password.component';
 
-
-
 @NgModule({
   declarations: [AppComponent, LoginComponent, PasswordComponent],
   entryComponents: [],
