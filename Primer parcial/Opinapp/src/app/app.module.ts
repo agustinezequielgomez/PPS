@@ -16,9 +16,12 @@ import { AngularFireModule } from '@angular/fire';
 import { firebaseConfig } from '../enviroment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MenuComponent } from './Components/menu/menu.component';
+import { HomePage } from './Components/home/home.page';
+import { HeaderComponent } from './Components/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, PasswordComponent],
+  declarations: [AppComponent, LoginComponent, PasswordComponent, MenuComponent, HomePage, HeaderComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig), AngularFireAuthModule, AngularFirestoreModule],

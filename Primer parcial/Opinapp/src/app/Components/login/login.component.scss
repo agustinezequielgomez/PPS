@@ -125,3 +125,13 @@
       --progress-background: var(--ion-secondary-color-step-200);
       --buffer-background: var(--ion-secondary-color-step-100);
   }
+  
+  ion-select-option {
+      background-color: red;
+      --background: blue;
+      --ion-background-color: yellow;
+  }
+  
+  .list-md {
+      background: red;
+  }

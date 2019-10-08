@@ -1,0 +1,4 @@
+ion-toolbar {
+    --background: var(--ion-secondary-background-color);
+    color: white;
+}

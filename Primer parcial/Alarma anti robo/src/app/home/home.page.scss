@@ -1,34 +1,34 @@
-#cerrarSesion
-{
+#cerrarSesion {
     --background: var(--ion-secondary-background-color);
     --background-hover: var(--ion-secondary-color-step-100);
     --background-activated: var(--ion-secondary-color-step-250);
     --border-radius: 1rem;
 }
 
-@mixin activateButton
-{
+@mixin activateButton {
     width: 80%;
     height: 55%;
     --border-radius: 100%;
     position: absolute;
     left: 10%;
-
+    --border-style: solid;
+    --border-width: .5rem;
+    --border-color: white;
+    top: 20%;
 }
 
-.activatedButton
-{
+.activatedButton {
     @include activateButton();
     --ripple-color: rgb(0, 255, 0);
     --background: var(--ion-secondary-background-color);
     --background-hover: var(--ion-secondary-color-step-100);
     --background-activated: var(--ion-secondary-color-step-250);
+    --border-color: rgb(124, 124, 124);
 }
 
-.deactivateButton
-{
+.deactivateButton {
     @include activateButton();
-    --riplple-color: red;    
+    --riplple-color: red;
     --background: #0dfe49;
     --background-hover: #00fb00;
     --background-activated: #00e900;
@@ -38,15 +38,14 @@
     from,
     50%,
     to {
-      opacity: 1;
+        --background: var(--ion-secondary-background-color);
     }
-  
     25%,
     75% {
-      opacity: 0;
+        --background: red;
     }
-  }
-  
-  .flash {
+}
+
+.flash {
     animation: flash 3s infinite ease-in-out;
-  }
+}
