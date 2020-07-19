@@ -12,14 +12,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { IonicStorageModule } from '@ionic/storage';
-import { HomeComponent } from './Components/home/home.component';
 import {} from '@ionic/angular/'
 import { CoreModule } from './core/core.module';
+import { SplashScreenComponent } from './Components/splash-screen/splash-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    SplashScreenComponent
   ],
   entryComponents: [],
   imports: [
