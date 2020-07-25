@@ -31,6 +31,7 @@ export class DatabaseService {
 
 
   public async getDocument<T>(collection: string, documentId: string): Promise<T> {
+    console.log(collection, documentId);
     const DATA: T = (await this.getDocRef(collection, documentId)).data() as T;
     return DATA;
   }

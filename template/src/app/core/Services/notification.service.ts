@@ -8,18 +8,19 @@ export class NotificationService {
 
   constructor(private toast: ToastController, private alertController: AlertController) { }
 
-  async presentToast(color: 'success' | 'warning' | 'error', message: string, duration: number = 0,
+  async presentToast(color: 'success' | 'warning' | 'danger', message: string, duration: number = 0,
                      mode: 'ios' | 'md' = 'md', position: 'bottom' | 'middle' | 'top' = 'bottom', cssClass?: string, header?: string) {
 
     switch (color) {
       case 'success':
-        message.concat(' ✔️');
+        console.log('SUCCESS');
+        message = message.concat(' ✔️');
         break;
       case 'warning':
-        message.concat(' ⚠️');
+        message = message.concat(' ⚠️');
         break;
-      case 'error':
-        message.concat(' ❌');
+      case 'danger':
+        message = message.concat(' ❌');
         break;
     }
     const CANCELLATION_BUTTON: string[] | undefined = (duration === 0) ? ['Cancelar'] : undefined;
@@ -27,7 +28,7 @@ export class NotificationService {
     const TOAST: HTMLIonToastElement = await this.toast.create({
       animated: true,
       color: color,
-      cssClass: cssClass,
+      // cssClass: cssClass,
       message: message,
       duration: duration,
       mode: mode,

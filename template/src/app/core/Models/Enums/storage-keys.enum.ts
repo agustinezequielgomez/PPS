@@ -1,3 +1,6 @@
 export enum StorageKeys {
-    test = 'test'
+    UID = 'USER_ID',
+    EMAIL = 'EMAIL',
+    USER = 'USER',
+    CONFIG = 'APP_CONFIG'
 }

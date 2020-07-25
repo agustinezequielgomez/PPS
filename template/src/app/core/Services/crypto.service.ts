@@ -10,7 +10,7 @@ export class CryptoService {
   constructor() { }
 
   encryptObject(data: any) {
-    return crypto.AES.encrypt(JSON.stringify(data), this.SECRET_KEY);
+    return crypto.AES.encrypt(JSON.stringify(data), this.SECRET_KEY).toString();
   }
 
   decryptObect(encryptedData: any) {

@@ -1,6 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { AppVersion } from '@ionic-native/app-version/ngx';
+import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
 
 
 
@@ -8,7 +12,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
   declarations: [],
   imports: [
     CommonModule,
-    AngularFirestoreModule
-  ]
+    AngularFirestoreModule,
+    AngularFireAuthModule
+  ],
+  providers: [
+    AppVersion,
+    NavigationBar,
+    AndroidPermissions,
+  ],
 })
 export class CoreModule { }
