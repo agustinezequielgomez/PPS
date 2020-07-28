@@ -30,7 +30,7 @@ export class InitService {
       if (await this.storage.storageIsSet(StorageKeys.CONFIG)) {
         return await this.storage.getStorage<AppConfig>(StorageKeys.CONFIG);
       } else {
-        const CONFIG = await this.dataBase.getDocument<AppConfig>(DataBaseCollections.config, packageJson.name);
+        const CONFIG = await this.dataBase.getDocumentData<AppConfig>(DataBaseCollections.config, packageJson.name);
         await this.storage.setStorage(StorageKeys.CONFIG, CONFIG);
         return CONFIG;
       }

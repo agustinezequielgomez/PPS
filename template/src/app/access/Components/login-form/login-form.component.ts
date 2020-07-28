@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../../../core/Services/auth.service';
-import { DatabaseService } from '../../../core/Services/database.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../core/Models/Classes/user';
 import { DataBaseCollections } from '../../../core/Models/Enums/data-base-collections.enum';
+import { AuthService } from '../../../core/Services/auth.service';
+import { DatabaseService } from '../../../core/Services/database.service';
 import { NotificationService } from '../../../core/Services/notification.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -15,20 +14,19 @@ import { Router } from '@angular/router';
 export class LoginFormComponent implements OnInit {
 
   public loginForm: FormGroup;
-  constructor(private auth: AuthService, private dataBase: DatabaseService, private notification: NotificationService, private router: Router) { }
+  constructor(private auth: AuthService, private dataBase: DatabaseService, private notification: NotificationService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.loginForm = new FormGroup({
       userName: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
-    setTimeout(() => this.router.navigate(['splash']), 5000);
   }
 
   public async login() {
     try {
       const USER = await this.auth.signInWithEmail(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value);
-      console.log(await this.dataBase.getDocument<User>(DataBaseCollections.users, USER.uid));
+      console.log(await this.dataBase.getDocumentData<User>(DataBaseCollections.users, USER.uid));
     } catch (ex) {
       const ERROR: {a: any, code: string, message: string, stack: string} = ex;
       let errorMessage: string = '';

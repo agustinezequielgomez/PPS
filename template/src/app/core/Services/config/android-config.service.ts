@@ -47,8 +47,8 @@ export class AndroidConfigService implements IConfigService {
   async getPermisions(permissions: string[]) {
     permissions.forEach(async permission => {
       try {
-        if (!(await this.permissions.hasPermission(permission)).hasPermission) {
-          await this.permissions.requestPermission(permission)
+        if (!(await this.permissions.checkPermission(permission)).hasPermission) {
+          await this.permissions.requestPermission(permission);
         }
       } catch (error) {
         console.error(error);
