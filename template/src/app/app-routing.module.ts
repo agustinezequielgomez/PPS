@@ -5,7 +5,7 @@ import { LoginFormComponent } from './access/Components/login-form/login-form.co
 
 const routes: Routes = [
   {
-    path: 'access',
+    path: '',
     loadChildren: () => import('./access/access.module').then(m => m.AccessModule)
   },
   {

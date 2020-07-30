@@ -44,7 +44,7 @@ export class LoginFormComponent implements OnInit {
           errorMessage = 'Contraseña incorrecta. Por favor, inténtelo nuevamente';
           break;
       }
-      this.notification.presentToast('danger', errorMessage, 8000, 'ios', 'bottom', '', 'Error al hacer login');
+      this.notification.presentToast('danger', errorMessage, 8000, 'ios', 'bottom', 'Error al hacer login');
     }
   }
 }

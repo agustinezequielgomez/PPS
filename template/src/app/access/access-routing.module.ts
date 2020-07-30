@@ -11,7 +11,7 @@ const routes: Routes = [
         data: {state: 'loginScreen'}
     },
     {
-        path: 'splash',
+        path: '',
         component: SplashScreenComponent,
         data: {state: 'splashScreen'}
     },

@@ -9,7 +9,7 @@ export class NotificationService {
   constructor(private toast: ToastController, private alertController: AlertController) { }
 
   async presentToast(color: 'success' | 'warning' | 'danger', message: string, duration: number = 0,
-                     mode: 'ios' | 'md' = 'md', position: 'bottom' | 'middle' | 'top' = 'bottom', cssClass?: string, header?: string) {
+                     mode: 'ios' | 'md' = 'md', position: 'bottom' | 'middle' | 'top' = 'bottom', header?: string, cssClass?: string) {
 
     switch (color) {
       case 'success':
@@ -28,7 +28,7 @@ export class NotificationService {
     const TOAST: HTMLIonToastElement = await this.toast.create({
       animated: true,
       color: color,
-      // cssClass: cssClass,
+      cssClass: cssClass,
       message: message,
       duration: duration,
       mode: mode,
