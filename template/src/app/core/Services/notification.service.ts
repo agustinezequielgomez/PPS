@@ -35,7 +35,7 @@ export class NotificationService {
       position: position,
       header: header,
       buttons: CANCELLATION_BUTTON,
-      translucent: true
+      translucent: false
     });
 
     TOAST.present();
