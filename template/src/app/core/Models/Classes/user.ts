@@ -1,3 +1,7 @@
-export class User {
-    public role: string;
+import { Type } from '@angular/core';
+
+export interface User {
+    role: string;
 }
+
+export type Users = User[];

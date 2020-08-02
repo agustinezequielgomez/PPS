@@ -12,7 +12,7 @@ export class DatabaseService {
   constructor(private store: AngularFirestore) { }
 
   /**
-   * Gets an AngularFirestoreCollection
+   * Retrieves an AngularFirestoreCollection
    * @param collectionName Name of the collection
    * @param query Optional query for the collection
    */
@@ -29,7 +29,7 @@ export class DatabaseService {
   }
 
   /**
-   * Gets a document object
+   * Retrieves a document object
    * @param collectionName Name of the collection
    * @param documentId ID of the document to query
    */
@@ -38,7 +38,7 @@ export class DatabaseService {
   }
 
   /**
-   * Gets a document stream
+   * Retrieves a document stream
    * @param collectionName Name of the collection
    * @param documentId ID of the document to query
    */
@@ -74,7 +74,7 @@ export class DatabaseService {
       })));
   }
 
-  /** Gets specific document data within a collection
+  /** Retrieves specific document data within a collection
    * @param collectionName Name of the collection
    * @param documentId ID of the document to query
    */

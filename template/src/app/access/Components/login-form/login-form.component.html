@@ -1,7 +1,7 @@
 <ion-grid fixed>
     <ion-row class="ion-justify-content-center">
         <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="6">
-            <ion-card color="primary" mode="ios">
+            <ion-card id="loginCard" color="primary" mode="ios">
                 <ion-card-header mode="ios">
                     <ion-card-title mode="ios" class="ion-text-center" color="secondary">LOGIN</ion-card-title>
                 </ion-card-header>
@@ -17,7 +17,7 @@
                                 <mat-form-field class="form-field" appearance="outline" color="accent">
                                     <mat-label>Contraseña
                                     </mat-label>
-                                    <input matInput required formControlName="password" type="password" />
+                                    <input matInput required formControlName="password" [type]="this.passwordInputType" />
                                 </mat-form-field>
                             </form>
                         </ion-col>
@@ -26,7 +26,7 @@
                         <ion-col size="12">
                             <ion-item color="primary">
                                 <ion-label>Mostrar contraseña</ion-label>
-                                <ion-toggle color="secondary" slot="start" mode="md"></ion-toggle>
+                                <ion-toggle color="secondary" slot="start" mode="md" (ionChange)="this.togglePasswordInput()"></ion-toggle>
                             </ion-item>
                         </ion-col>
                     </ion-row>
@@ -34,7 +34,7 @@
                         <ion-col size="12">
                             <ion-item color="primary">
                                 <ion-label id="labelCheck">Recordar contraseña</ion-label>
-                                <ion-checkbox id="check" color="secondary" mode="md" slot="start"></ion-checkbox>
+                                <ion-checkbox id="check" color="secondary" slot="start" mode="md" [checked]="this.rememberUser" (ionChange)="this.toggleRememberUser()"></ion-checkbox>
                             </ion-item>
                         </ion-col>
                     </ion-row>

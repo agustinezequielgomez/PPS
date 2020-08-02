@@ -1,10 +1,10 @@
-export class AppConfig {
-    public statusBar: StatusBar;
-    public navigationBar: boolean;
-    public permissions: string[];
+export interface AppConfig {
+    statusBar: StatusBar;
+    navigationBar: boolean;
+    permissions: string[];
 }
 
-export class StatusBar {
-    public enabled: boolean;
-    public color?: string;
+export interface StatusBar {
+    enabled: boolean;
+    color?: string;
 }

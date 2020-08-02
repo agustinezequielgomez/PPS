@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TestUser } from 'src/app/core/Models/Classes/test-user';
 import { User } from '../../../core/Models/Classes/user';
 import { DataBaseCollections } from '../../../core/Models/Enums/data-base-collections.enum';
+import { StorageKeys } from '../../../core/Models/Enums/storage-keys.enum';
 import { AuthService } from '../../../core/Services/auth.service';
+import { DataShareService } from '../../../core/Services/data-share.service';
 import { DatabaseService } from '../../../core/Services/database.service';
 import { NotificationService } from '../../../core/Services/notification.service';
+import { StorageService } from '../../../core/Services/storage.service';
 
 @Component({
   selector: 'app-login-form',
@@ -14,22 +18,52 @@ import { NotificationService } from '../../../core/Services/notification.service
 export class LoginFormComponent implements OnInit {
 
   public loginForm: FormGroup;
-  constructor(private auth: AuthService, private dataBase: DatabaseService, private notification: NotificationService) { }
+  public passwordInputType: 'text' | 'password' = 'password';
+  public rememberUser = false;
 
-  async ngOnInit() {
+  public set SetUser(user: TestUser) {
+    this.loginForm.setValue({
+      userName: user.correo,
+      password: user.clave
+    });
+  }
+
+  constructor(private auth: AuthService, private dataBase: DatabaseService,
+              private notification: NotificationService, private storage: StorageService, private share: DataShareService) { }
+
+  ngOnInit() {
     this.loginForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
+      userName: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required)
     });
+
+    this.share.TestUserObservable.subscribe((user) => {
+      if (user !== null) {
+        this.SetUser = user;
+      }
+    });
+  }
+
+  togglePasswordInput(): void {
+    (this.passwordInputType === 'text') ? this.passwordInputType = 'password' : this.passwordInputType = 'text';
+  }
+
+  toggleRememberUser(): void {
+    this.rememberUser = !this.rememberUser;
   }
 
   public async login() {
     try {
       const USER = await this.auth.signInWithEmail(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value);
-      console.log(await this.dataBase.getDocumentData<User>(DataBaseCollections.users, USER.uid));
+      console.log(this.rememberUser);
+      await this.storage.setStorage(StorageKeys.USER, await this.dataBase.getDocumentData<User>(DataBaseCollections.users, USER.uid));
+      if (this.rememberUser) {
+        console.log(`REMEMBER USER: ${USER.refreshToken}`);
+        await this.storage.setStorage(StorageKeys.TOKEN, USER.refreshToken);
+      }
     } catch (ex) {
       const ERROR: {a: any, code: string, message: string, stack: string} = ex;
-      let errorMessage: string = '';
+      let errorMessage = '';
       switch (ERROR.code) {
         case 'auth/invalid-email':
           errorMessage = 'Mail incorrecto. Por favor, inténtelo nuevamente';
