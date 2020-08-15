@@ -57,8 +57,8 @@ export class AnimationService {
   }
 
   static async playChainedAnimations(...animations: Animation[]): Promise<void> {
-    animations.forEach(async animation => {
+    for (const animation of animations) {
       await animation.play();
-    });
+    }
   }
 }
