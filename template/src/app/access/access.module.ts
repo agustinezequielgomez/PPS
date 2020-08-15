@@ -23,6 +23,9 @@ import { AccessRoutingModule } from './access-routing.module';
     FormsModule,
     IonicModule.forRoot(),
     AccessRoutingModule
+  ],
+  exports: [
+    SplashScreenComponent
   ]
 })
 export class AccessModule { }

@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { SplashScreenComponent } from './access/Components/splash-screen/splash-screen.component';
-import { LoginFormComponent } from './access/Components/login-form/login-form.component';
 
 const routes: Routes = [
   {

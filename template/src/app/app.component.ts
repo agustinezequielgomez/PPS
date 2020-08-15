@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 import { InitService } from './core/Services/init.service';
@@ -15,13 +14,13 @@ const { SplashScreen } = Plugins;
 })
 export class AppComponent {
 
+  public hideSplashAnimation = false;
   public get RoutingAnimation() {
     return routingAnimation;
   }
 
   constructor(
     private platform: Platform,
-    // private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private initService: InitService,
   ) {
