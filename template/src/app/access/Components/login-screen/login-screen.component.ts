@@ -23,6 +23,6 @@ export class LoginScreenComponent implements OnInit {
   }
 
   pickUser(user: TestUser) {
-    this.share.SetTestUser = user;
+    this.share.TestUser = user;
   }
 }

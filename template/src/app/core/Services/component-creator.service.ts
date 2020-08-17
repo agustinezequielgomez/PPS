@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActionSheetController, PickerController, PopoverController } from '@ionic/angular';
+import { ActionSheetController, PickerController, PopoverController, LoadingController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import { ActionSheetController, PickerController, PopoverController } from '@ion
 export class ComponentCreatorService {
 
   constructor(private actionSheetController: ActionSheetController, private pickerController: PickerController,
-              private popOverController: PopoverController) { }
+              private popOverController: PopoverController, private loadingController: LoadingController) { }
 
   async createActionSheet(buttons: [{text: string, handler: () => boolean | void | Promise<boolean | void>,
                           icon?: string, role?: string}],
@@ -60,8 +60,8 @@ export class ComponentCreatorService {
     await PICKER.present();
   }
 
-  async createPopOver(component: () => any | HTMLElement | null | string, mode: 'ios' | 'md',
-                      keyboardClose?: boolean, cssClass?: string, translucent?: boolean) {
+  async createPopOver<T>(component: any, mode: 'ios' | 'md',
+                      keyboardClose?: boolean, cssClass?: string, translucent?: boolean): Promise<T> {
     const POPOVER = await this.popOverController.create({
       animated: true,
       backdropDismiss: true,
@@ -72,9 +72,27 @@ export class ComponentCreatorService {
       showBackdrop: true,
       translucent: translucent
     });
-
-
     await POPOVER.present();
+    const { data } = await POPOVER.onWillDismiss<T>();
+    return data;
+  }
+
+  async createLoader(mode: 'ios' | 'md', message: string, keyboardClose: boolean, showBackDrop: boolean,
+                     spinner: 'bubbles' | 'circles' | 'circular' | 'crescent' | 'dots' | 'lines' | 'lines-small' | null | undefined,
+                     backdropDismiss = false, cssClass?: string): Promise<HTMLIonLoadingElement> {
+    const LOADER = await this.loadingController.create({
+      animated: true,
+      backdropDismiss: backdropDismiss,
+      cssClass: cssClass,
+      keyboardClose: keyboardClose,
+      message: message,
+      mode: mode,
+      showBackdrop: showBackDrop,
+      spinner: spinner
+    });
+
+    await LOADER.present();
+    return LOADER;
   }
 
   private getSingleColumnOptions<T>(objects: T[], displayProperty: string) {

@@ -28,20 +28,20 @@ export class DataShareService {
   }
 
 
-  public get GetTestUser(): TestUser {
+  public get TestUser(): TestUser {
     return this.TestUserSubject.value;
   }
-  public set SetTestUser(user: TestUser) {
+  public set TestUser(user: TestUser) {
     this.TestUserSubject.next(user);
   }
 
-  public get GetTestUsers(): TestUsers {
+  public get TestUsers(): TestUsers {
     return [
-      {id: 1, correo: 'admin@admin.com', clave: 1111, perfil: 'admin', sexo: 'femenino'},
-      {id: 2, correo: 'invitado@invitado.com', clave: 2222, perfil: 'invitado', sexo: 'femenino'},
-      {id: 3, correo: 'usuario@usuario.com', clave: 3333, perfil: 'usuario', sexo: 'masculino'},
-      {id: 4, correo: 'anonimo@anonimo.com', clave: 4444, perfil: 'usuario', sexo: 'masculino'},
-      {id: 5, correo: 'tester@tester.com', clave: 5555, perfil: 'tester', sexo: 'femenino'}
+      {id: 1, correo: 'admin@admin.com', clave: 111111, perfil: 'admin', sexo: 'femenino'},
+      {id: 2, correo: 'invitado@invitado.com', clave: 222222, perfil: 'invitado', sexo: 'femenino'},
+      {id: 3, correo: 'usuario@usuario.com', clave: 333333, perfil: 'usuario', sexo: 'masculino'},
+      {id: 4, correo: 'anonimo@anonimo.com', clave: 444444, perfil: 'usuario', sexo: 'masculino'},
+      {id: 5, correo: 'tester@tester.com', clave: 555555, perfil: 'tester', sexo: 'femenino'}
     ];
   }
   //#endregion

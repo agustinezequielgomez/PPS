@@ -53,3 +53,13 @@
     // --start: 15rem;
     --color: red;
 }
+
+.ion-users-popover {
+    --background: var(--ion-color-primary);
+}
+
+.ion-loader {
+    --background: var(--ion-color-primary);
+    --spinner-color: var(--ion-color-secondary);
+    color: white;
+}
