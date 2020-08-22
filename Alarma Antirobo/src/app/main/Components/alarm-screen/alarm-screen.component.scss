@@ -1,0 +1,29 @@
+#background {
+    display: grid;
+    grid-template-areas: "." "button" ".";
+    grid-template-rows: 10% 80% 10%;
+    grid-template-columns: auto;
+    height: 100%;
+}
+
+#button {
+    grid-area: button;
+    place-self: center;
+    height: 85vw;
+    width: 85vw;
+    --border-radius: 100% !important;
+}
+
+@media(orientation: portrait) {
+    #button {
+        height: 85vw;
+        width: 85vw;
+    }
+}
+
+@media(orientation: landscape) {
+    #button {
+        height: 75vh;
+        width: 75vh;
+    }
+}

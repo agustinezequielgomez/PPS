@@ -1,0 +1,15 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "Alarma Antirobo",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 10000,
+      "launchAutoHide": false,
+      "androidSplashResourceName": "splash"
+    }
+  },
+  "cordova": {}
+}

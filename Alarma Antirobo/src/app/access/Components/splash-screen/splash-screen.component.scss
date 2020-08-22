@@ -1,0 +1,39 @@
+#background {
+    background-image: linear-gradient(to right, #8000ff 50%, #279fff 50%);
+    height: 100%;
+    display: grid;
+    grid-template-areas: ". . ." ". logo ." ". . .";
+    grid-template-rows: 30% 40% 30%;
+    grid-template-columns: 30% 40% 30%;
+}
+
+#logo {
+    grid-area: logo;
+    place-self: center;
+}
+
+#shield {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+#phone {
+    position: absolute;
+    right: 45%;
+    width: 10%;
+    margin-top: 9%;
+    opacity: 0;
+}
+
+@media(max-width: 450px) {
+    #background {
+        justify-items: center;
+        grid-template-areas: "." "logo" ".";
+        grid-template-columns: auto;
+    }
+    #phone {
+        right: 38%;
+        width: 25%;
+        margin-top: 23%;
+    }
+}
