@@ -22,7 +22,9 @@
     <preference name="ShowSplashScreen" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="orientation" value="portrait" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <platform name="android">
+        <uses-permission android:name="android.permission.VIBRATE" />
         <allow-navigation href="http://localhost*" />
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:networkSecurityConfig="@xml/network_security_config" />

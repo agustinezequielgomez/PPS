@@ -1,18 +1,12 @@
 <div id="background">
-    <div>
-
-        <h4>X: {{this.x}}</h4>
-
-
-        <h4>Y: {{this.y}}</h4>
-
-
-
-        <h4>Z: {{this.z}}</h4>
-
-
+    <div #alert id="alert">
+        <ion-text id="text" color="primary">
+            <h1 class="ion-text-center">El telefono debe estar apoyado horizontalmente para poder iniciar la aplicación.</h1>
+        </ion-text>
+        <img id="phoneAlert" src="assets/phone-alert.png" alt="" srcset="">
+        <ion-button [ngStyle]="{'grid-area': 'closeButton', 'width': '65%', 'justify-self': 'center'}" expand="block" fill="solid" size="small" color="secondary" (click)="this.closeAlert()">Cerrar</ion-button>
     </div>
-    <ion-button id="button" expand="block" fill="solid" size="large" color="secondary">
-        Button
+    <ion-button id="button" expand="block" fill="solid" size="large" color="secondary" (click)="toggleDeviceOrientation()">
+        {{this.state.buttonText}}
     </ion-button>
 </div>

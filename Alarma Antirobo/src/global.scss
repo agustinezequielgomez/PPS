@@ -63,3 +63,20 @@
     --spinner-color: var(--ion-color-secondary);
     color: white;
 }
+
+.popover-content.sc-ion-popover-md {
+    top: 405px !important;
+}
+
+.popover-content.sc-ion-popover-ios {
+    position: fixed;
+    top: 200px !important;
+}
+
+.disableAlarmPopover {
+    --box-shadow: 1px 1px 10px black;
+    --width: 95%;
+    --max-height: 35%;
+    --backdrop-opacity: 0.5;
+    --background: var(--ion-color-primary);
+}

@@ -5,12 +5,17 @@ import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../material.module';
 import { MainRoutingModule } from './main-routing.module';
 import { AlarmScreenComponent } from './Components/alarm-screen/alarm-screen.component';
+import { PasswordModalComponent } from './Components/password-modal/password-modal.component';
 
 
 
 @NgModule({
   declarations: [
-    AlarmScreenComponent
+    AlarmScreenComponent,
+    PasswordModalComponent
+  ],
+  entryComponents: [
+    PasswordModalComponent
   ],
   imports: [
     CommonModule,

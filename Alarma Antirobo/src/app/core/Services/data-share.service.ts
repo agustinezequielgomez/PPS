@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TestUsers, TestUser } from '../Models/Classes/test-user';
+import { ScreenOrientation } from '../Models/Enums/screen-orientation.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,13 @@ export class DataShareService {
   //#region Subjects
   private FullScreen: BehaviorSubject<boolean> = new BehaviorSubject(null);
   private TestUserSubject: BehaviorSubject<TestUser> = new BehaviorSubject(null);
+  private ScreenOrientationSubject: BehaviorSubject<ScreenOrientation> = new BehaviorSubject(null);
+  private CurrentlyPlayingFileSubject: BehaviorSubject<string> = new BehaviorSubject(null);
   //#endregion
 
   //#region Observables
   public TestUserObservable: Observable<TestUser> = this.TestUserSubject.asObservable();
+  public ScreenOrientationObservable: Observable<ScreenOrientation> = this.ScreenOrientationSubject.asObservable();
   //#endregion
 
   //#region Properties
@@ -33,6 +37,25 @@ export class DataShareService {
   }
   public set TestUser(user: TestUser) {
     this.TestUserSubject.next(user);
+  }
+
+  public set ScreenOrientation(value: ScreenOrientation) {
+    if (value !== this.ScreenOrientationSubject.value) {
+      this.ScreenOrientationSubject.next(value);
+    }
+  }
+
+  public get ScreenOrientation(): ScreenOrientation {
+    return this.ScreenOrientationSubject.value;
+  }
+
+  public get CurrentlyPlayingFile(): string {
+    return this.CurrentlyPlayingFileSubject.value;
+  }
+
+
+  public set CurrentlyPlayingFile(value: string) {
+    this.CurrentlyPlayingFileSubject.next(value);
   }
 
   public get TestUsers(): TestUsers {

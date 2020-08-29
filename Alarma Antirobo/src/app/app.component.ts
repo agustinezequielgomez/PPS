@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
 import { InitService } from './core/Services/init.service';
 import { routingAnimation } from './core/animations/animations';
 import { Plugins } from '@capacitor/core';
+import { StorageService } from './core/Services/storage.service';
+import { StorageKeys } from './core/Models/Enums/storage-keys.enum';
 const { SplashScreen } = Plugins;
 
 @Component({
@@ -23,7 +25,13 @@ export class AppComponent {
     private platform: Platform,
     private statusBar: StatusBar,
     private initService: InitService,
+    private storage: StorageService
   ) {
+    this.storage.getStorage<boolean>(StorageKeys.SPLASH_SCREEN).then(splash => {
+      if (splash === true) {
+        this.hideSplashAnimation = false;
+      }
+    });
     this.initializeApp();
   }
 
@@ -32,6 +40,7 @@ export class AppComponent {
       await this.initService.init();
       this.statusBar.styleDefault();
       this.hideSplashAnimation = false;
+      this.storage.setStorage(StorageKeys.SPLASH_SCREEN, true);
       await SplashScreen.hide();
     });
   }

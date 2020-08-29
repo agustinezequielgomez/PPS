@@ -3,5 +3,7 @@ export enum StorageKeys {
     EMAIL = 'EMAIL',
     USER = 'USER',
     CONFIG = 'APP_CONFIG',
-    TOKEN = 'REFRESH_TOKEN'
+    TOKEN = 'REFRESH_TOKEN',
+    SPLASH_SCREEN = 'SPLASH_ALREADY_DISPLAYED',
+    PASSWORD = 'PASS'
 }

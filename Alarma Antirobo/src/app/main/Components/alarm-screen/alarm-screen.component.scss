@@ -4,6 +4,8 @@
     grid-template-rows: 10% 80% 10%;
     grid-template-columns: auto;
     height: 100%;
+    background: rgb(26, 141, 255);
+    background: linear-gradient(75deg, rgba(26, 141, 255, 1) 0%, rgba(0, 128, 255, 1) 42%, rgba(0, 113, 224, 1) 64%);
 }
 
 #button {
@@ -12,6 +14,32 @@
     height: 85vw;
     width: 85vw;
     --border-radius: 100% !important;
+    z-index: 1;
+}
+
+#phoneAlert {
+    grid-area: alertImage;
+    place-self: center;
+}
+
+#alert {
+    display: none;
+    grid-template-areas: "upperText" "alertImage" "closeButton";
+    grid-template-rows: 15% 75% 10%;
+    position: absolute;
+    background-color: #000000b0;
+    height: 100%;
+    z-index: 500;
+    opacity: .5;
+}
+
+#text {
+    grid-area: upperText;
+    font-family: var(--ion-font-family);
+}
+
+#text>h1 {
+    font-weight: 300;
 }
 
 @media(orientation: portrait) {

@@ -63,6 +63,7 @@ export class LoginFormComponent implements OnInit {
       const USER = await this.auth.signInWithEmail(this.loginForm.controls['userName'].value,
                                                    this.loginForm.controls['password'].value.toString());
       await this.storage.setStorage(StorageKeys.USER, await this.dataBase.getDocumentData<User>(DataBaseCollections.users, USER.uid));
+      await this.storage.setStorage(StorageKeys.PASSWORD, this.loginForm.controls['password'].value.toString());
       if (this.rememberUser) {
         console.log(`REMEMBER USER: ${USER.refreshToken}`);
         await this.storage.setStorage(StorageKeys.TOKEN, USER.refreshToken);
