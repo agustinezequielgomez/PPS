@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActionSheetController, PickerController, PopoverController, LoadingController } from '@ionic/angular';
+import { ActionSheetController, AnimationBuilder, LoadingController, ModalController, PickerController, PopoverController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +7,15 @@ import { ActionSheetController, PickerController, PopoverController, LoadingCont
 export class ComponentCreatorService {
 
   constructor(private actionSheetController: ActionSheetController, private pickerController: PickerController,
-              private popOverController: PopoverController, private loadingController: LoadingController) { }
+    private popOverController: PopoverController, private loadingController: LoadingController,
+    private modal: ModalController) { }
 
-  async createActionSheet(buttons: [{text: string, handler: () => boolean | void | Promise<boolean | void>,
-                          icon?: string, role?: string}],
-                          mode: 'ios' | 'md', header: string, keyboardClose?: boolean, cssClass?: string,
-                          translucent?: boolean, subHeader?: string) {
+  async createActionSheet(buttons: [{
+    text: string, handler: () => boolean | void | Promise<boolean | void>,
+    icon?: string, role?: string
+  }],
+    mode: 'ios' | 'md', header: string, keyboardClose?: boolean, cssClass?: string,
+    translucent?: boolean, subHeader?: string) {
     const ACTION_SHEET = await this.actionSheetController.create({
       animated: true,
       backdropDismiss: true,
@@ -29,7 +32,7 @@ export class ComponentCreatorService {
   }
 
   async createColumnPicker<T>(confirmHandler: (value: T) => boolean | void, columnObjects: T[], columnName: string,
-                              propDisplayName: string, mode: 'ios' | 'md', keyboardClose?: boolean, cssClass?: string) {
+    propDisplayName: string, mode: 'ios' | 'md', keyboardClose?: boolean, cssClass?: string) {
     const PICKER = await this.pickerController.create({
       animated: true,
       backdropDismiss: true,
@@ -61,7 +64,7 @@ export class ComponentCreatorService {
   }
 
   async createPopOver<T>(component: any, mode: 'ios' | 'md',
-                      keyboardClose?: boolean, cssClass?: string, translucent?: boolean): Promise<T> {
+    keyboardClose?: boolean, cssClass?: string, translucent?: boolean): Promise<T> {
     const POPOVER = await this.popOverController.create({
       animated: true,
       backdropDismiss: true,
@@ -72,14 +75,15 @@ export class ComponentCreatorService {
       showBackdrop: true,
       translucent: translucent
     });
+
     await POPOVER.present();
     const { data } = await POPOVER.onWillDismiss<T>();
     return data;
   }
 
   async createLoader(mode: 'ios' | 'md', message: string, keyboardClose: boolean, showBackDrop: boolean,
-                     spinner: 'bubbles' | 'circles' | 'circular' | 'crescent' | 'dots' | 'lines' | 'lines-small' | null | undefined,
-                     backdropDismiss = false, cssClass?: string): Promise<HTMLIonLoadingElement> {
+    spinner: 'bubbles' | 'circles' | 'circular' | 'crescent' | 'dots' | 'lines' | 'lines-small' | null | undefined,
+    backdropDismiss = false, cssClass?: string): Promise<HTMLIonLoadingElement> {
     const LOADER = await this.loadingController.create({
       animated: true,
       backdropDismiss: backdropDismiss,
@@ -95,8 +99,29 @@ export class ComponentCreatorService {
     return LOADER;
   }
 
+  async createModal<T>(mode: 'ios' | 'md', component: any, componentData: undefined | { [key: string]: any },
+    keyboardClose: boolean, backdropDismiss: boolean, cssClass?: string,
+    animations?: { enter?: AnimationBuilder, leave?: AnimationBuilder }): Promise<T> {
+    const MODAL = await this.modal.create({
+      animated: true,
+      backdropDismiss: backdropDismiss,
+      component: component,
+      componentProps: componentData,
+      cssClass: cssClass,
+      keyboardClose: keyboardClose,
+      mode: mode,
+      showBackdrop: true,
+      // TODO: FIX
+      // enterAnimation: animations.enter,
+      // leaveAnimation: animations.leave
+    });
+    await MODAL.present();
+    const { data } = await MODAL.onWillDismiss<T>();
+    return data;
+  }
+
   private getSingleColumnOptions<T>(objects: T[], displayProperty: string) {
-    const OPTIONS: {text: string, value: T}[] = [];
+    const OPTIONS: { text: string, value: T }[] = [];
     for (const column of objects) {
       OPTIONS.push({
         text: column[displayProperty],
