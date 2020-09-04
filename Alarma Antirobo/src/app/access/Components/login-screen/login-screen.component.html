@@ -32,12 +32,12 @@
     </ion-row>
     <ion-row class="ion-justify-content-center">
         <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="6" class="ion-padding" id="usersCol">
-            <ion-button color="secondary" (click)="displayUserList()" expand="block" fill="solid">Elegir usuario</ion-button>
+            <ion-button id="pickUserButton" (click)="displayUserList()" expand="block" fill="solid">Elegir usuario</ion-button>
         </ion-col>
     </ion-row>
 </ion-grid>
 <ion-footer class="ion-no-border ion-text-center">
     <ion-toolbar>
-        <ion-title color="secondary" size="small">{{this.author}} - {{this.appName}} (v{{this.version}})</ion-title>
+        <ion-title id="footerTitle" size="small">{{this.author}} - {{this.appName}} (v{{this.version}})</ion-title>
     </ion-toolbar>
 </ion-footer>

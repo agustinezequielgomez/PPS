@@ -10,3 +10,19 @@ svg {
 ion-toolbar {
     --background: transparent !important;
 }
+
+#pickUserButton {
+    --background-activated: transparent;
+    --background-hover: var(--ion-color-secondary-contrast, #fff);
+    --background-focused: var(--ion-color-secondary-contrast, #fff);
+    --background-activated-opacity: 0;
+    --background-focused-opacity: .24;
+    --background-hover-opacity: .08;
+    --box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    --background: var(--ion-color-secondary, #8000ff);
+    --color: var(--ion-color-secondary-contrast, #fff);
+}
+
+#footerTitle {
+    color: #8000ff !important;
+}
