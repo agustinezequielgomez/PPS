@@ -5,7 +5,7 @@
     grid-template-columns: auto;
     height: 100%;
     background: rgb(26, 141, 255);
-    background: linear-gradient(75deg, rgba(26, 141, 255, 1) 0%, rgba(0, 128, 255, 1) 42%, rgba(0, 113, 224, 1) 64%);
+    background-image: linear-gradient(to right bottom, #0080ff, #667dfe, #927afa, #b576f3, #d172ea);
 }
 
 #button {
