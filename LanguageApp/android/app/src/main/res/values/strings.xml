@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">template</string>
-    <string name="title_activity_main">template</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">Tabla didactica</string>
+    <string name="title_activity_main">Tabla didactica</string>
+    <string name="package_name">tabla.didactica</string>
+    <string name="custom_url_scheme">tabla.didactica</string>
     <string name="mauron85_bgloc_account_name">@string/app_name</string>
     <string name="mauron85_bgloc_account_type">$PACKAGE_NAME.account</string>
     <string name="mauron85_bgloc_content_authority">$PACKAGE_NAME</string>
