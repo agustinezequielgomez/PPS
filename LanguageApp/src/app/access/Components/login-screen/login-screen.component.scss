@@ -1,3 +1,72 @@
 #usersCol {
     padding: 16px 9px;
 }
+
+#select {
+    /* Applies to the value and placeholder color */
+    color: var(--ion-secondary-color);
+    /* Set a different placeholder color */
+    --placeholder-color: var(--ion-secondary-color);
+    /* Set full opacity on the placeholder */
+    --placeholder-opacity: 1;
+    width: 150%;
+}
+
+#select::part(placeholder),
+#select::part(text) {
+    flex: 0 0 auto;
+    color: var(--ion-color-secondary);
+}
+
+#selectLabel {
+    color: var(--ion-color-secondary);
+}
+
+#selectContainer {
+    width: 92%;
+    margin-bottom: 15px;
+}
+
+.select-popover .selectOption {
+    --color: red;
+}
+
+#footerText {
+    font-size: 20px;
+}
+
+#animatedImg {
+    position: absolute;
+    z-index: 100;
+    display: none;
+}
+
+.top-right-corner {
+    left: 37%;
+    bottom: 103%;
+    transform: rotate(-115deg);
+}
+
+.top-left-corner {
+    right: 40%;
+    bottom: 93%;
+    transform: rotate(-188deg);
+}
+
+.middle-left {
+    right: 91%;
+    bottom: 29%;
+    transform: rotate(-239deg);
+}
+
+.bottom-left-corner {
+    right: 34%;
+    top: 101%;
+    transform: rotate(60deg);
+}
+
+.bottom-right-corner {
+    left: 37%;
+    top: 92%;
+    transform: rotate(-7deg);
+}

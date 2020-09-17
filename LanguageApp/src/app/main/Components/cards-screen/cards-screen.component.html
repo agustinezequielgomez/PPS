@@ -1,3 +1,4 @@
-<p>
-  cards-screen works!
-</p>
+<div id="layout">
+    <app-card class="card" *ngFor="let card of this.currentDisplayingCards; let i = index" [cardInfo]="card" [id]="i+1"></app-card>
+    <app-fabutton></app-fabutton>
+</div>

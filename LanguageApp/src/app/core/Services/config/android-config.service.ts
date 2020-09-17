@@ -7,6 +7,7 @@ import { DataShareService } from '../data-share.service';
 import { IConfigService } from '../Interfaces/iconfig-service';
 import { StorageService } from '../storage.service';
 import { Plugins, StatusBarAnimation } from '@capacitor/core';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 const { StatusBar } = Plugins;
 
 @Injectable({
@@ -15,10 +16,12 @@ const { StatusBar } = Plugins;
 export class AndroidConfigService implements IConfigService {
 
   constructor(private storage: StorageService, private navBar: NavigationBar,
-              private permissions: PermissionService, private dataShare: DataShareService) { }
+              private permissions: PermissionService, private dataShare: DataShareService, 
+              private orientation: ScreenOrientation) { }
 
   async loadAppConfiguration(): Promise<void> {
     try {
+      this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
       const config = await this.storage.getStorage<AppConfig>(StorageKeys.CONFIG);
       await this.customizeStatusBar(config.statusBar);
       await this.getPermisions(config.permissions);

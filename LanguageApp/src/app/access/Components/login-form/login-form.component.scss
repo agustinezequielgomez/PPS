@@ -1,17 +1,32 @@
+@mixin borderStyle {
+    width: 100%;
+    --border-color: white;
+    --background: var(--ion-color-secondary);
+    --border-style: solid;
+    --border-width: 5px;
+    --border-radius: 50px;
+}
+
 #loginForm {
     width: 100%;
 }
 
 .form-field {
-    width: 100%;
+    @include borderStyle();
+    --highlight-height: 0px;
 }
 
 #submitButton {
-    width: 100%;
+    font-size: 25px;
+    @include borderStyle();
 }
 
 #check {
     margin-left: 6px;
+    --background: var(--ion-color-secondary);
+    --background-checked: var(--ion-color-tertiary);
+    --checkmark-color: white;
+    --checkmark-width: 3px;
 }
 
 #labelCheck {
@@ -20,4 +35,39 @@
 
 #loginCard {
     margin: 16px 0;
+}
+
+.controlLabel {
+    font-size: 20px;
+    color: white !important;
+}
+
+#toggle {
+    --handle-width: 21px;
+    --border-radius: 70px;
+    height: 25px;
+    --handle-height: 20px;
+    --background: var(--ion-color-secondary);
+    --background-checked: var(--ion-color-tertiary);
+}
+
+#title {
+    font-size: 3.5rem;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.750);
+}
+
+.input-label {
+    font-size: 30px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-top: -12px;
+    margin-bottom: -5px;
+    border-top-width: 0px;
+    border-top-style: solid;
+    color: white;
+}
+
+.form-input {
+    font-size: 22px;
+    color: white;
 }

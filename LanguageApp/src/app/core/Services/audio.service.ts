@@ -1,16 +1,24 @@
 import { Injectable } from '@angular/core';
-import { NativeAudioOriginal } from '@ionic-native/native-audio';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AudioService {
 
-  constructor(private audio: NativeAudioOriginal) { }
+  constructor(private audio: NativeAudio) { }
 
   async preloadFile(id: string, folder: string, fileName: string): Promise<void> {
     try {
       await this.audio.preloadSimple(id, `assets/${folder}/${fileName}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async preloadFileLocation(id: string, fileLocation: string): Promise<void> {
+    try {
+      await this.audio.preloadSimple(id, fileLocation);
     } catch (error) {
       console.error(error);
     }
@@ -26,7 +34,15 @@ export class AudioService {
 
   async preloadComplex(id: string, folder: string, fileName: string, volume: number, delay: number = 0, voices: number = 1): Promise<void> {
     try {
-      await this.audio.preloadComplex(id, `assets/${folder}/${fileName}`, volume, delay, voices);
+      await this.audio.preloadComplex(id, `assets/${folder}/${fileName}`, volume, voices, delay);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async preloadComplexFileLocation(id: string, fileName: string, volume: number, delay: number = 0, voices: number = 1): Promise<void> {
+    try {
+      await this.audio.preloadComplex(id, fileName, volume, delay, voices);
     } catch (error) {
       console.error(error);
     }

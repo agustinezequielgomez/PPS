@@ -1,3 +1,17 @@
-<p>
-  splash-screen works!
-</p>
+<div id="background" #component>
+    <div id="logo">
+        <div [ngStyle]="{'grid-area': 'flag1', 'height': '100%', 'z-index': 1}">
+            <img id="loro" src="assets/animals/loro.png" alt="" #loro>
+            <img id="tortuga" src="assets/animals/tortuga.png" alt="" #tortuga>
+            <img src="assets/flags/eng_splash_old.png" alt="" #leftFlag>
+        </div>
+        <div [ngStyle]="{'grid-area': 'flag2', 'height': '100%', 'z-index': 1}">
+            <img id="jirafa" src="assets/animals/jirafa.png" alt="" #middleFlag>
+            <img src="assets/flags/arg_splash_old.png" alt="" #jirafa>
+        </div>
+        <div [ngStyle]="{'grid-area': 'flag3', 'height': '100%', 'z-index': 1}">
+            <img id="leon" src="assets/animals/leon.png" alt="" #leon>
+            <img src="assets/flags/br_splash_old.png" alt="" #rightFlag>
+        </div>
+    </div>
+</div>

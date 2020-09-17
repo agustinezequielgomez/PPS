@@ -1,0 +1,19 @@
+#layout {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.card {
+    width: 47%;
+}
+
+@media(orientation: 'landscape') {
+    .card {
+        width: 21%;
+    }
+    #layout {
+        padding-top: 25px;
+    }
+}

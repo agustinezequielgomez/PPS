@@ -22,7 +22,7 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private statusBar: StatusBar,
-    private initService: InitService,
+    private initService: InitService
   ) {
     this.initializeApp();
   }

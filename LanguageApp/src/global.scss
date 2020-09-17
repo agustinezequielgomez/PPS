@@ -63,3 +63,17 @@
     --spinner-color: var(--ion-color-secondary);
     color: white;
 }
+
+.iten-highlight {
+    height: 0px !important;
+}
+
+@font-face {
+    font-family: billy;
+    src: url(assets/fonts/billy.ttf) format("opentype");
+}
+
+.select-popover .selectOption {
+    --color: var(--ion-color-tertiary);
+    --background: var(--ion-color-secondary);
+}

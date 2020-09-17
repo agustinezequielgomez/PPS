@@ -1,17 +1,26 @@
+<img id="animatedImg" [class]="this.animationImg.cssClass" [src]="this.animationImg.imgPath" alt="" #img>
 <ion-grid fixed>
     <ion-row>
         <ion-col size="12" class="ion-no-padding">
-            <app-login-form></app-login-form>
+            <app-login-form (loggingIn)="this.loading = $event"></app-login-form>
         </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
-        <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="6" class="ion-padding" id="usersCol">
-            <ion-button (click)="displayUserList()" expand="block" fill="outline">Elegir usuario</ion-button>
+        <ion-item id="selectContainer">
+            <ion-label color="secondary">Elegir usuario</ion-label>
+            <ion-select id="select" [placeholder]="'Usuario'" mode="ios" interface="popover" [interfaceOptions]="{cssClass: 'select-popover'}" [cancelText]="'Cancelar'" [okText]="'Elegir'" [compareWith]="this.userCompare" (ionChange)="this.pickUser($event)" (ionFocus)="this.audio.playAudioFile('click')">
+                <ion-select-option class="selectOption" *ngFor="let user of this.share.TestUsers" [value]="user.id">{{user.correo}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+        <ion-col size="11">
+            <ion-progress-bar *ngIf="this.loading" type="indeterminate" color="tertiary"></ion-progress-bar>
         </ion-col>
     </ion-row>
 </ion-grid>
 <ion-footer mode="ios" class="ion-text-center">
     <ion-toolbar>
-        <ion-title color="secondary" size="small">{{this.author}} - {{this.appName}} (v{{this.version}})</ion-title>
+        <ion-title id="footerText" color="secondary" size="small">{{this.author}} - {{this.appName}} (v{{this.version}})</ion-title>
     </ion-toolbar>
 </ion-footer>

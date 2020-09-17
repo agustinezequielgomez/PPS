@@ -1,52 +1,50 @@
 <ion-grid fixed>
     <ion-row class="ion-justify-content-center">
         <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="6">
-            <ion-card id="loginCard" color="primary" mode="ios">
-                <ion-card-header mode="ios">
-                    <ion-card-title mode="ios" class="ion-text-center" color="secondary">LOGIN</ion-card-title>
-                </ion-card-header>
-                <ion-card-content>
-                    <ion-row>
-                        <ion-col size="12">
-                            <form id="loginForm" [formGroup]="loginForm">
-                                <mat-form-field class="form-field" appearance="outline" color="accent">
-                                    <mat-label>Nombre de usuario
-                                    </mat-label>
-                                    <input matInput required formControlName="userName" type="email" />
-                                </mat-form-field>
-                                <mat-form-field class="form-field" appearance="outline" color="accent">
-                                    <mat-label>Contraseña
-                                    </mat-label>
-                                    <input matInput required formControlName="password" [type]="this.passwordInputType" />
-                                </mat-form-field>
-                            </form>
-                        </ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col size="12">
-                            <ion-item color="primary">
-                                <ion-label>Mostrar contraseña</ion-label>
-                                <ion-toggle color="secondary" slot="start" mode="md" (ionChange)="this.togglePasswordInput()"></ion-toggle>
-                            </ion-item>
-                        </ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col size="12">
-                            <ion-item color="primary">
-                                <ion-label id="labelCheck">Recordar contraseña</ion-label>
-                                <ion-checkbox id="check" color="secondary" slot="start" mode="md" [checked]="this.rememberUser" (ionChange)="this.toggleRememberUser()"></ion-checkbox>
-                            </ion-item>
-                        </ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col>
-                            <ion-button id="submitButton" block color="secondary" type="submit" (click)="this.login()" [disabled]="loginForm.invalid">
-                                Login
-                            </ion-button>
-                        </ion-col>
-                    </ion-row>
-                </ion-card-content>
-            </ion-card>
+            <ion-text class="ion-text-center" color="secondary">
+                <h1 id="title">Login</h1>
+            </ion-text>
+            <ion-row>
+                <ion-col size="12">
+                    <form [formGroup]="loginForm" id="loginForm">
+                        <ion-item [ngStyle]="{'margin-bottom': '15px'}" class="form-field">
+                            <ion-label class="input-label" position="stacked">Nombre de usuario
+                                <ion-text color="danger">*</ion-text>
+                            </ion-label>
+                            <ion-input class="form-input" mode="ios" required formControlName="userName" type="text"></ion-input>
+                        </ion-item>
+                        <ion-item class="form-field">
+                            <ion-label class="input-label" position="stacked">Contrasenia
+                                <ion-text color="danger">*</ion-text>
+                            </ion-label>
+                            <ion-input class="form-input" mode="ios" required formControlName="password" type="{{this.passwordInputType}}"></ion-input>
+                        </ion-item>
+                    </form>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label class="controlLabel">Mostrar contrasenia</ion-label>
+                        <ion-toggle id="toggle" slot="start" mode="ios" (ionChange)="this.togglePasswordInput()"></ion-toggle>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label class="controlLabel" id="labelCheck">Recordar contrasenia</ion-label>
+                        <ion-checkbox id="check" slot="start" mode="ios" [checked]="this.rememberUser" (ionChange)="this.toggleRememberUser()"></ion-checkbox>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button id="submitButton" block color="secondary" type="submit" mode="ios" (click)="this.login()" [disabled]="loginForm.invalid">
+                        Login
+                    </ion-button>
+                </ion-col>
+            </ion-row>
         </ion-col>
     </ion-row>
 </ion-grid>

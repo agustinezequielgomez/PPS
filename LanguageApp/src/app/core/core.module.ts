@@ -5,7 +5,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
-
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
   providers: [
     AppVersion,
     NavigationBar,
+    NativeAudio,
     AndroidPermissions,
   ],
 })

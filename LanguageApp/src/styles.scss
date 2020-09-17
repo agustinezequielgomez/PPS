@@ -16,3 +16,7 @@ $dynamic-success: mat-palette($md-warn);
 $dynamic-theme: dynamic-theme($dynamic-primary, $dynamic-accent, $dynamic-warn, $dynamic-success);
 @include angular-material-theme($dynamic-theme);
 /////////////////////////////////////////
+@font-face {
+    font-family: billy;
+    src: url(assets/fonts/billy.ttf) format("opentype");
+}

@@ -1,3 +1,20 @@
-<p>
-  fabutton works!
-</p>
+<ion-fab [activated]="this.languageFab.opened" [vertical]="this.languageFab.position.vertical" [horizontal]="this.languageFab.position.horizontal">
+    <ion-fab-button color="tertiary" (click)="this.openLanguageFab()">
+        <img [src]="this.flagFabImgPath" alt="">
+    </ion-fab-button>
+    <ion-fab-list [activated]="this.languageFab.opened" [side]="this.languageFab.position.side">
+        <ion-fab-button color="tertiary" *ngFor="let language of this.data.FlagImgPaths" (click)="this.selectLanguage(language.language)">
+            <img [src]="language.path" alt="">
+        </ion-fab-button>
+    </ion-fab-list>
+</ion-fab>
+<ion-fab [activated]="this.elementFab.opened" [vertical]="this.elementFab.position.vertical" [horizontal]="this.elementFab.position.horizontal">
+    <ion-fab-button color="tertiary" (click)="this.openElementFab()">
+        <img [src]="this.elementFabImgPath" alt="">
+    </ion-fab-button>
+    <ion-fab-list [activated]="this.elementFab.opened" [side]="this.elementFab.position.side">
+        <ion-fab-button color="tertiary" *ngFor="let element of this.data.ElementsImgPaths" (click)="this.selectElement(element.element)">
+            <img [src]="element.path" alt="">
+        </ion-fab-button>
+    </ion-fab-list>
+</ion-fab>

@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './material.module';
-
+import { MainModule } from './main/main.module';
 
 
 
@@ -31,6 +31,7 @@ import { MaterialModule } from './material.module';
     AccessModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    MainModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
     IonicStorageModule.forRoot(),
