@@ -1,0 +1,58 @@
+#loginForm {
+    width: 100%;
+}
+
+.form-field {
+    width: 100%;
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    --highlight-color-valid: var(--ion-color-secondary-shade);
+    --highlight-color-invalid: red;
+    --padding-start: 0;
+}
+
+#submitButton {
+    width: 100%;
+    margin-top: 15%;
+}
+
+#check {
+    margin-left: 6px;
+}
+
+#labelCheck {
+    margin-left: 12px;
+}
+
+#loginCard {
+    margin: 16px 0;
+    --background: rgba(255, 255, 255, 0.732);
+}
+
+#toggle-item {
+    --inner-border-width: 0px;
+    margin-top: 3px;
+}
+
+.input-label {
+    --color: black;
+}
+
+.item-has-focus .label-floating.sc-ion-label-md-h {
+    color: var(--ion-color-secondary) !important;
+}
+
+#login-thumbnail {
+    --border-radius: 157px;
+    --size: 139px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    position: relative;
+    background: linear-gradient(to right, var(--ion-color-primary) 50%, var(--ion-color-secondary) 50%);
+    margin-bottom: -5px;
+}
+
+#img-login {
+    width: 67%;
+    margin-left: 23px;
+}

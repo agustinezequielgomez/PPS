@@ -1,0 +1,8 @@
+<div id="container">
+    <mat-progress-spinner id="spinner" [color]="this.color" [mode]="this.mode" [value]='this.value' [strokeWidth]="this.strokeWidth" [diameter]="this.diameter"></mat-progress-spinner>
+    <ion-icon #ionIcon id="icon" [color]="'secondary'" name="cloud-done-sharp"></ion-icon>
+    <p #text id="text">¡Fotos subidas con exito!</p>
+    <ion-button #button id="button" (click)="this.nav.navigateRoot(['main'], {animationDirection: 'back'})" expand="block" fill="solid" color="success">
+        Volver al inicio
+    </ion-button>
+</div>

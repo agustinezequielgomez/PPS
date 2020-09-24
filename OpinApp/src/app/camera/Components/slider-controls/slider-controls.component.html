@@ -1,0 +1,14 @@
+<div id="controls-container">
+    <ion-button id="add" color="primary" (click)="addPhoto()">
+        <ion-icon slot="end" name="add-circle-sharp"></ion-icon>
+        Agregar foto
+    </ion-button>
+    <ion-button [disabled]="this.disableButtons" id="remove" color="secondary" (click)="removePhoto()">
+        <ion-icon slot="end" name="trash-sharp"></ion-icon>
+        Eliminar foto
+    </ion-button>
+    <ion-button [disabled]="this.disableButtons" id="upload" color="success" (click)="this.uploadPhotos()">
+        <ion-icon slot="end" name="cloud-upload-sharp"></ion-icon>
+        Subir foto
+    </ion-button>
+</div>

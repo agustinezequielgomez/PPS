@@ -1,0 +1,12 @@
+#item {
+    --ripple-color: var(--ion-color-primary)
+}
+
+.activated {
+    --background: rgba(var(--ion-color-primary-rgb), 0.9);
+}
+
+#item::part(native) {
+    border-top-right-radius: 8%;
+    border-bottom-right-radius: 8%;
+}

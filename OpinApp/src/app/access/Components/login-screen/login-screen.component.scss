@@ -1,0 +1,17 @@
+#usersCol {
+    padding: 16px 9px;
+}
+
+#svg {
+    position: absolute !important;
+    z-index: -100 !important;
+}
+
+app-login-form {
+    margin-top: 10px;
+}
+
+#toolbar {
+    --background: transparent;
+    --color: black;
+}

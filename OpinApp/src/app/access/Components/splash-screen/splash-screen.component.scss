@@ -1,0 +1,58 @@
+#splash {
+    display: grid;
+    grid-template-areas: "space" "buildings" "text";
+    grid-template-rows: 20% 50% 30%;
+    background: linear-gradient(to right, var(--ion-color-primary) 50%, var(--ion-color-secondary) 50%);
+    height: 100%;
+}
+
+#buildings {
+    grid-area: buildings;
+    display: grid;
+    grid-template-areas: "nice bad";
+}
+
+#text {
+    grid-area: text;
+}
+
+h3 {
+    color: white;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+p {
+    color: white;
+    font-size: 23px;
+    margin-top: -4px;
+    font-weight: 500;
+}
+
+.buildings {
+    width: 90%;
+    align-self: center;
+}
+
+#flashDiv {
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    background-color: white;
+    opacity: 0;
+}
+
+#edificio-bien {
+    align-self: center;
+    justify-self: end;
+}
+
+#edificio-mal {
+    justify-self: start;
+}
+
+#edificio-completo {
+    width: 70%;
+    place-self: center;
+}

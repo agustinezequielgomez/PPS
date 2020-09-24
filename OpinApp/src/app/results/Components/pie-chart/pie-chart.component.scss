@@ -1,0 +1,11 @@
+#container {
+    display: grid;
+    grid-template-areas: 'title' 'space' 'chart';
+    grid-template-rows: 10% 10% 80%;
+}
+
+#thumbnail {
+    --border-radius: 300px;
+    --size: 354px;
+    place-self: center;
+}

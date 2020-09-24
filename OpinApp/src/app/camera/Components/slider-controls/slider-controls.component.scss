@@ -1,0 +1,19 @@
+#controls-container {
+    display: grid;
+    grid-template-areas: "add remove" ". upload";
+    grid-template-columns: 1fr 1fr;
+    margin: 0% 4% 10%;
+}
+
+#add {
+    grid-area: add;
+}
+
+#remove {
+    grid-area: remove;
+}
+
+#upload {
+    grid-area: upload;
+    grid-column-start: 1;
+}
