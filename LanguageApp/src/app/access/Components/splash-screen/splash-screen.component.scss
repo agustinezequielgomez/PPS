@@ -1,0 +1,47 @@
+#background {
+    background-image: linear-gradient(to right, #03fb5a 50%, #03a4fb 50%);
+    height: 100%;
+    display: grid;
+    grid-template-areas: ". . ." ". logo ." ". . .";
+    grid-template-rows: 38% 19% 43%;
+    grid-template-columns: 15% 70% 15%;
+}
+
+#logo {
+    grid-area: logo;
+    display: grid;
+    place-self: center;
+    grid-template-areas: "flag1 flag2 flag3";
+    grid-template-columns: 33.3% 33.3% 33.3%;
+}
+
+#loro {
+    position: absolute;
+    width: 18%;
+    bottom: 58%;
+    left: 10%;
+}
+
+#tortuga {
+    position: absolute;
+    width: 20%;
+    bottom: 44.5%;
+    left: 12%;
+    z-index: 2;
+}
+
+#jirafa {
+    position: absolute;
+    width: 55%;
+    bottom: 48%;
+    z-index: -1;
+    right: 15%;
+}
+
+#leon {
+    position: absolute;
+    width: 36%;
+    bottom: 44%;
+    right: -7%;
+    z-index: -1;
+}
