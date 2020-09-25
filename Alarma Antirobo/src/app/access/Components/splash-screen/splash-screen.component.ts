@@ -13,6 +13,7 @@ export class SplashScreenComponent implements OnInit, AfterViewInit {
   @ViewChild('shield', { static: true }) shield: ElementRef;
   @ViewChild('phone', { static: true }) phone: ElementRef;
   @ViewChild('component', { static: true }) component: ElementRef;
+  @ViewChild('text', { static: true }) text: ElementRef;
   @Output() destroyComponent = new EventEmitter<void>();
   constructor(private router: Router) {
     console.log('SPLASH INIT');
@@ -35,7 +36,7 @@ export class SplashScreenComponent implements OnInit, AfterViewInit {
           { offset: 1, filter: 'blur(0px)' },
           { offset: 1, opacity: 1 }
         ], 'normal', 'cubic-bezier', [0.470, 0.000, 0.745, 0.715])
-        .afterStyles({ opacity: 1 });
+        .addElement(this.text.nativeElement).afterStyles({ opacity: 1 });
 
       const SHAKE_ANIMATION: Animation = AnimationService.createKeyFramedAnimation
         (this.shield.nativeElement, 700, 1, [
