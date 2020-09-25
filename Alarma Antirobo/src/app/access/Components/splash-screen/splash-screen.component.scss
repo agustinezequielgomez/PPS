@@ -1,0 +1,58 @@
+#background {
+    background-image: linear-gradient(to right, #8000ff 50%, #279fff 50%);
+    height: 100%;
+    display: grid;
+    grid-template-areas: ". . ." ". logo ." ". text .";
+    grid-template-rows: 30% 40% 30%;
+    grid-template-columns: 30% 40% 30%;
+}
+
+#logo {
+    grid-area: logo;
+    place-self: center;
+}
+
+#shield {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+#text {
+    grid-area: text;
+    opacity: 0;
+}
+
+#phone {
+    position: absolute;
+    right: 45%;
+    width: 10%;
+    margin-top: 9%;
+    opacity: 0;
+}
+
+h3 {
+    font-size: 40px;
+    color: white;
+    margin-top: 28px;
+    font-weight: 900;
+}
+
+p {
+    font-size: 25px;
+    margin-top: -5px;
+    color: white;
+    font-weight: 500;
+}
+
+@media (max-width: 450px) {
+    #background {
+        justify-items: center;
+        grid-template-areas: "." "logo" "text";
+        grid-template-columns: auto;
+    }
+    #phone {
+        right: 38%;
+        width: 25%;
+        margin-top: 23%;
+    }
+}

@@ -1,0 +1,7 @@
+<ion-list>
+    <ng-container>
+        <ion-item *ngFor="let user of this.share.TestUsers" color="primary">
+            <ion-label (click)="this.selectUser(user)">{{user.correo}}</ion-label>
+        </ion-item>
+    </ng-container>
+</ion-list>

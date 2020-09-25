@@ -1,0 +1,68 @@
+#loginForm {
+    width: 100%;
+}
+
+.form-field {
+    width: 100%;
+    --ion-color-base: transparent !important;
+    --highlight-color-valid: var(--ion-color-secondary-shade);
+    --highlight-color-invalid: red;
+}
+
+#submitButton {
+    width: 100%;
+}
+
+#check {
+    margin-left: 6px;
+    --background: var(--ion-color-secondary);
+}
+
+.input {
+    color: white;
+}
+
+#labelCheck {
+    margin-left: 12px;
+}
+
+#loginCard {
+    margin: 16px 0;
+}
+
+#title {
+    font-weight: 800;
+    text-shadow: #7300f8 1px 1px 4px;
+    color: white;
+}
+
+#remebmerPassWord {
+    --background: transparent;
+    --color: white;
+    --color-activated: white;
+    --color-focused: white;
+    --color-hover: white;
+    --border-style: none;
+    --ripple-color: var(--ion-color-tertiary);
+}
+
+#icon {
+    margin-top: 26px;
+    cursor: pointer;
+    color: #ff0080;
+}
+
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
+}
+
+.label {
+    color: white;
+    text-shadow: #7300f8eb 2px 2px 7px;
+}
+
+ion-item.item-has-focus>ion-label {
+    color: var(--ion-color-secondary) !important;
+    text-shadow: #7300f8eb 2px 2px 7px;
+}

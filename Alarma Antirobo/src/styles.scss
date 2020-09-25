@@ -1,0 +1,19 @@
+/////////////////////////////////////////
+@import "~@angular/material/theming";
+@include mat-core();
+$md-primary: ( 50: #e0f0ff, 100: #b3d9ff, 200: #80c0ff, 300: #4da6ff, 400: #2693ff, 500: #0080ff, 600: #0078ff, 700: #006dff, 800: #0063ff, 900: #0050ff, A100: #ffffff, A200: #f2f5ff, A400: #bfcfff, A700: #a6bcff, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+$md-secondary: ( 50: #f0e0ff, 100: #d9b3ff, 200: #c080ff, 300: #a64dff, 400: #9326ff, 500: #8000ff, 600: #7800ff, 700: #6d00ff, 800: #6300ff, 900: #5000ff, A100: #ffffff, A200: #f5f2ff, A400: #cfbfff, A700: #bca6ff, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #ffffff, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+$md-tertiary: ( 50: #ffe0f0, 100: #ffb3d9, 200: #ff80c0, 300: #ff4da6, 400: #ff2693, 500: #ff0080, 600: #ff0078, 700: #ff006d, 800: #ff0063, 900: #ff0050, A100: #ffffff, A200: #fff2f5, A400: #ffbfcf, A700: #ffa6bc, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+$md-success: ( 50: #e6faee, 100: #c0f2d4, 200: #96e9b7, 300: #6ce09a, 400: #4dda85, 500: #2dd36f, 600: #28ce67, 700: #22c85c, 800: #1cc252, 900: #11b740, A100: #e6ffec, A200: #b3ffc6, A400: #80ff9f, A700: #67ff8c, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #000000, 600: #000000, 700: #000000, 800: #000000, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+$md-warn: ( 50: #fde9eb, 100: #f9c7ce, 200: #f5a2ad, 300: #f17c8c, 400: #ee6073, 500: #eb445a, 600: #e93e52, 700: #e53548, 800: #e22d3f, 900: #dd1f2e, A100: #ffffff, A200: #ffe0e2, A400: #ffadb3, A700: #ff949b, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+$dynamic-primary: mat-palette($md-primary);
+$dynamic-accent: mat-palette($md-tertiary);
+$dynamic-warn: mat-palette($md-warn);
+$dynamic-success: mat-palette($md-warn);
+@function dynamic-theme( $primary: $md-primary, $secondary: $md-secondary, $warn: $md-warn, $success: $md-success) {
+    @return map-merge( mat-light-theme($primary, $secondary, $warn), ( success: $success, ));
+}
+
+$dynamic-theme: dynamic-theme($dynamic-primary, $dynamic-accent, $dynamic-warn, $dynamic-success);
+@include angular-material-theme($dynamic-theme);
+/////////////////////////////////////////
