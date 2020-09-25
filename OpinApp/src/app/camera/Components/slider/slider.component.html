@@ -1,0 +1,26 @@
+<ng-container *ngIf="this.photos.length > 0; else noPhotos">
+    <ion-content>
+        <ion-slides mode="md" pager="false" scrollbar="true" #slider>
+            <ion-slide *ngFor="let img of this.photos">
+                <div class="slide-img-container">
+                    <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl(img.photoUrl)" />
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </ion-content>
+</ng-container>
+<ng-template #noPhotos>
+    <ion-content>
+        <ion-slides mode="md" pager="false" scrollbar="true" #slider>
+            <ion-slide id="no-photos-slide">
+                <img id="no-photos-img" src="assets/no-photos.png" alt="">
+                <p>No hay imagenes agregadas.</p>
+                <p>Apreta
+                    <ion-icon slot="end" name="add-circle-sharp"></ion-icon>
+                    para agregar fotos.
+                </p>
+            </ion-slide>
+        </ion-slides>
+    </ion-content>
+</ng-template>
+<app-slider-controls [slider]='this.slider'></app-slider-controls>

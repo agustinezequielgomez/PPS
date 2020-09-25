@@ -1,0 +1,4 @@
+<app-list-skeleton *ngIf="this.displaySkeleton"></app-list-skeleton>
+<ion-list *ngIf="!this.displaySkeleton">
+    <app-list-item *ngFor="let pic of this.photos" [photo]="pic" [allowVoting]='false' [alreadyVoted]='false'></app-list-item>
+</ion-list>

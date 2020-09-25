@@ -1,0 +1,12 @@
+<div id="flashDiv" #flash></div>
+<div id="splash" #splash>
+    <div id="buildings">
+        <img *ngIf="!this.displayCompleteBuilding" id='edificio-bien' class="buildings" src="assets/edificio bien.png" alt="" #edificioBien>
+        <img *ngIf="!this.displayCompleteBuilding" id='edificio-mal' class="buildings" src="assets/edificio mal.png" alt="" #edificioMal>
+        <img *ngIf="this.displayCompleteBuilding" id='edificio-completo' src="assets/edificio completo.png" alt="">
+    </div>
+    <div *ngIf="this.displayCompleteBuilding" id='text'>
+        <h3 class="ion-text-center">OpinApp</h3>
+        <p class="ion-text-center">Agustín Gómez - 4°B</p>
+    </div>
+</div>

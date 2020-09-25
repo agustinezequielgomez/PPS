@@ -1,0 +1,11 @@
+<div id="container">
+    <h3 *ngIf="this.displaySkeleton" [ngStyle]="{'grid-area': 'title', 'padding-bottom': '20px', 'color': 'black', 'margin-left': '10px'}">
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+    </h3>
+    <h3 *ngIf="!this.displaySkeleton" [ngStyle]="{'grid-area': 'title', 'padding-bottom': '20px', 'color': 'black', 'margin-left': '10px'}">Resultados fotos lindas</h3>
+    <ion-thumbnail [ngStyle]="{'grid-area': 'chart'}" *ngIf="this.displaySkeleton" id="thumbnail" slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </ion-thumbnail>
+    <canvas *ngIf="!this.displaySkeleton" [ngStyle]="{'grid-area': 'chart'}" baseChart [data]="this.votes" [labels]="this.chartLabels" [chartType]="'pie'" [options]="this.chartOptions" [legend]="true" [colors]='this.colors'>
+  </canvas>
+</div>
