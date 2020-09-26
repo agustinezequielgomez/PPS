@@ -51,6 +51,7 @@
         "crypto-js": "^4.0.0",
         "firebase": "^7.13.1",
         "hover.css": "^2.3.2",
+        "jetifier": "^1.6.6",
         "moment": "^2.27.0",
         "ng2-charts": "^2.4.1",
         "rxjs": "~6.5.1",

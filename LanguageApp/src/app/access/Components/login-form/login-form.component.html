@@ -2,13 +2,13 @@
     <ion-row class="ion-justify-content-center">
         <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="6">
             <ion-text class="ion-text-center" color="secondary">
-                <h1 id="title">Login</h1>
+                <h1 id="title">Iniciar sesión</h1>
             </ion-text>
             <ion-row>
                 <ion-col size="12">
                     <form [formGroup]="loginForm" id="loginForm">
                         <ion-item [ngStyle]="{'margin-bottom': '15px'}" class="form-field">
-                            <ion-label class="input-label" position="stacked">Nombre de usuario
+                            <ion-label class="input-label" position="stacked">Correo electrónico
                                 <ion-text color="danger">*</ion-text>
                             </ion-label>
                             <ion-input class="form-input" mode="ios" required formControlName="userName" type="text"></ion-input>
@@ -41,7 +41,7 @@
             <ion-row>
                 <ion-col>
                     <ion-button id="submitButton" block color="secondary" type="submit" mode="ios" (click)="this.login()" [disabled]="loginForm.invalid">
-                        Login
+                        Ingresar
                     </ion-button>
                 </ion-col>
             </ion-row>

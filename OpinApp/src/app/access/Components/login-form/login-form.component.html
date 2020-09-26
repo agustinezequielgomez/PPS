@@ -13,7 +13,7 @@
                         <ion-col size="12">
                             <form id="loginForm" [formGroup]="loginForm">
                                 <ion-item mode="ios" class='form-field'>
-                                    <ion-label class="input-label" position="floating">E-Mail
+                                    <ion-label class="input-label" position="floating">Correo electrónico
                                         <ion-text color="danger">*</ion-text>
                                     </ion-label>
                                     <ion-input required formControlName="userName" type="email" mode="ios"></ion-input>
@@ -38,7 +38,7 @@
                     <ion-row>
                         <ion-col>
                             <ion-button id="submitButton" block color="primary" type="submit" (click)="this.login()" [disabled]="loginForm.invalid">
-                                Login
+                                Ingresar
                             </ion-button>
                         </ion-col>
                     </ion-row>

@@ -2,7 +2,7 @@
     background-image: linear-gradient(to right, #03fb5a 50%, #03a4fb 50%);
     height: 100%;
     display: grid;
-    grid-template-areas: ". . ." ". logo ." ". . .";
+    grid-template-areas: ". title ." ". logo ." ". text .";
     grid-template-rows: 38% 19% 43%;
     grid-template-columns: 15% 70% 15%;
 }
@@ -13,6 +13,21 @@
     place-self: center;
     grid-template-areas: "flag1 flag2 flag3";
     grid-template-columns: 33.3% 33.3% 33.3%;
+}
+
+h3 {
+    grid-area: title;
+    font-size: 60px;
+    margin-top: 139px;
+    color: var(--ion-color-tertiary);
+    font-weight: 600;
+}
+
+p {
+    grid-area: text;
+    font-size: 40px;
+    color: var(--ion-color-tertiary);
+    margin-top: 10px;
 }
 
 #loro {

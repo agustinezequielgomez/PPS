@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnimationService } from '../../../core/Services/animation.service';
-import { Animation } from '@ionic/angular';
-import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-splash-screen',
@@ -20,6 +18,8 @@ export class SplashScreenComponent implements OnInit, AfterViewInit {
   @ViewChild('rightFlag', {static: true}) rightFlag: ElementRef;
   @ViewChild('leon', {static: true}) leon: ElementRef;
   @ViewChild('component', {static: true}) component: ElementRef;
+  @ViewChild('text', {static: true}) text: ElementRef;
+  @ViewChild('title', {static: true}) title: ElementRef;
   constructor(private router: Router) {
   }
 
@@ -45,7 +45,7 @@ export class SplashScreenComponent implements OnInit, AfterViewInit {
         { offset: 1, 'transform-origin': 'top'},
         { offset: 1, opacity: 1},
       ], 'normal', 'cubic-bezier', [0.175, 0.885, 0.320, 1.275]))
-      .addElement(this.jirafa.nativeElement).delay(750);
+      .addElement(this.jirafa.nativeElement).addElement(this.title.nativeElement).delay(750);
 
      const rightAnimation = (AnimationService.createKeyFramedAnimation(this.rightFlag.nativeElement,
         1500, 1, [
@@ -56,7 +56,7 @@ export class SplashScreenComponent implements OnInit, AfterViewInit {
           { offset: 1, 'transform-origin': 'right'},
           { offset: 1, opacity: 1},
         ], 'normal', 'cubic-bezier', [0.175, 0.885, 0.320, 1.275]))
-        .addElement(this.leon.nativeElement).delay(1000);
+        .addElement(this.leon.nativeElement).addElement(this.text.nativeElement).delay(1000);
      const flagAnimations = AnimationService.createGroupedAnimations(0, 1, leftAnimation, middleAnimation, rightAnimation);
      const componentExitAnimation = AnimationService.createKeyFramedAnimation(this.component.nativeElement, 900, 1, [
        { offset: 0, transform: 'rotateY(0)' },
