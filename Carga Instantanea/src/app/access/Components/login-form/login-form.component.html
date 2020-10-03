@@ -1,0 +1,47 @@
+<ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="6">
+            <ion-card id="loginCard" color="eight-overlay" mode="ios">
+                <ion-card-header mode="ios">
+                    <ion-card-title mode="ios" class="ion-text-center" color="primary" [ngStyle]="{'color': 'var(--ion-color-primary)'}">Carga Instantánea</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-row>
+                        <ion-col size="12">
+                            <form id="loginForm" [formGroup]="loginForm">
+                                <ion-item mode="md" class='form-field'>
+                                    <ion-label class="input-label" position="stacked">Correo electrónico
+                                        <ion-text color="danger">*</ion-text>
+                                    </ion-label>
+                                    <ion-input required formControlName="userName" type="email" mode="md"></ion-input>
+                                </ion-item>
+                                <ion-item mode="md" class='form-field'>
+                                    <ion-label class="input-label" position="stacked">Contraseña
+                                        <ion-text color="danger">*</ion-text>
+                                    </ion-label>
+                                    <ion-input required formControlName="password" [type]="this.passwordInputType" mode="md"></ion-input>
+                                </ion-item>
+                            </form>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-item color="eight-overlay">
+                                <ion-label>Mostrar contraseña</ion-label>
+                                <ion-checkbox id="check" color="primary" slot="start" mode="md" [checked]="this.rememberUser" (ionChange)="this.togglePasswordInput()"></ion-checkbox>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-button id="submitButton" fill="outline" mode='md' color="primary" type="submit" (click)="this.login()" [disabled]="loginForm.invalid">
+                                Ingresar
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+            <ion-progress-bar *ngIf="this.logginIn" type="indeterminate" reversed="false" color="primary"></ion-progress-bar>
+        </ion-col>
+    </ion-row>
+</ion-grid>

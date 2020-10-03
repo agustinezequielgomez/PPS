@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar color="seventh-overlay">
+        <ion-button color="primary" mode='ios' color="light" fill="clear" (click)="this.nav.navigateRoot('/', {animationDirection: 'back'})">
+            <ion-icon name="arrow-back-sharp"></ion-icon>
+            Inicio de sesión
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+<div id="container">
+    <div id="load">
+        <ion-text class="ion-text-center" color="primary">
+            <h2>Cargar más crédito</h2>
+        </ion-text>
+        <ion-card id="card" button (click)="this.openQrScanner()" color="sixth-overlay">
+            <img src="assets/qr.png" alt="">
+        </ion-card>
+    </div>
+    <div id="money">
+        <div>
+            <ion-text class="ion-text-center" color="primary">
+                <h2>Tus créditos</h2>
+            </ion-text>
+        </div>
+        <ion-list *ngIf="this.qrCodes.length > 0; else noCredits" id='list'>
+            <ion-item class='item'>
+                <ion-label>
+                    <h3 id="total">
+                        Créditos totales: <span [ngStyle]="{'color': 'var(--ion-color-secondary)'}">{{ this.total | currency: 'USD' : 'symbol' : '1.0-0'}}</span>
+                        <ion-button slot="end" color="nineth-overlayprimary" (click)="removeCredits()">
+                            <ion-icon name="trash-sharp" color="primary"></ion-icon>
+                        </ion-button>
+                    </h3>
+                </ion-label>
+            </ion-item>
+            <ion-item class='item' *ngFor="let credit of this.qrCodes">
+                <ion-label>
+                    <h3>{{credit.value | currency: 'USD' : 'symbol' : '1.0-0'}}</h3>
+                    <p>{{credit.code}}</p>
+                </ion-label>
+            </ion-item>
+            <ion-item class="item">
+                <p [ngStyle]="{'font-size': '1px', 'color': '#1d1d1d'}">a</p>
+            </ion-item>
+        </ion-list>
+        <ng-template #noCredits>
+            <ion-text id='no-credits' color="primary">
+                <h1 class="ion-text-center">:(</h1>
+                <p class="ion-text-center">Actualmente no tenés créditos cargados</p>
+            </ion-text>
+        </ng-template>
+    </div>
+</div>

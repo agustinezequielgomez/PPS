@@ -1,0 +1,29 @@
+<ion-grid fixed>
+    <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+            <app-login-form></app-login-form>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Elegir usuario
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ion-list color="sixth-overlay">
+                <ion-radio-group color="sixth-overlay" allowEmptySelection='false' value='{{this.testUser}}' (ionChange)='this.pickUser($event)'>
+                    <ion-item color="sixth-overlay" [ngStyle]="{'width': '102%'}" *ngFor="let user of this.share.TestUsers">
+                        <ion-label [ngStyle]="{'font-size': '15px'}">{{user.correo}}</ion-label>
+                        <ion-radio value="{{user.correo}}"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-list>
+        </mat-expansion-panel>
+    </ion-row>
+</ion-grid>
+<ion-footer mode="ios" class="ion-text-center">
+    <ion-toolbar>
+        <ion-title size="small">{{this.author}} - {{this.appName}} (v{{this.version}})</ion-title>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,52 @@
+#splash {
+    background: linear-gradient(to right, #6200ee 50%, #222428 50%);
+    display: grid;
+    grid-template-areas: "title" "logo" "text";
+    grid-template-rows: 20% 60% 20%;
+    height: 100%;
+}
+
+#logo {
+    place-self: center;
+    grid-area: logo;
+}
+
+#qr {
+    width: 80%;
+    margin-left: 39px;
+}
+
+#money {
+    width: 30%;
+    position: absolute;
+    left: 17px;
+    bottom: 28%;
+}
+
+#scanner {
+    height: 10px;
+    background-color: rgba(43, 150, 185, 0.672);
+    width: 80%;
+    position: absolute;
+    margin-left: 39px;
+    top: 30%;
+}
+
+#title {
+    grid-area: title;
+    p {
+        font-size: 40px;
+        margin-top: 33%;
+        font-weight: 600;
+    }
+}
+
+#text {
+    margin-left: 3px;
+    grid-area: text;
+    p {
+        font-size: 30px;
+        margin-top: -8%;
+        font-weight: 500;
+    }
+}

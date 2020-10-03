@@ -1,0 +1,47 @@
+#loginForm {
+    width: 100%;
+}
+
+.form-field {
+    width: 100%;
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    --highlight-color-focused: var(--ion-color-primary);
+    --highlight-color-valid: var(--ion-color-primary);
+    --highlight-color-invalid: var(--ion-color-primary);
+    --padding-start: 0;
+}
+
+#submitButton {
+    margin-top: 40px;
+    width: 100%;
+}
+
+#submitButton {
+    margin-top: 40px;
+    width: 100%;
+}
+
+#submitButton::part(native) {
+    color: white;
+}
+
+#check {
+    margin-left: 6px;
+}
+
+#labelCheck {
+    margin-left: 12px;
+}
+
+#loginCard {
+    margin: 16px 0;
+}
+
+.input-label {
+    --color: white;
+}
+
+ion-item.item-has-focus>ion-label {
+    color: var(--ion-color-primary) !important;
+}
