@@ -1,0 +1,88 @@
+#splash {
+    display: grid;
+    grid-template-areas: "blanktop" "message1" "message2" "message3" "message4" "blankbottom";
+    grid-template-rows: 20% 15% 15% 15% 15% 20%;
+    background: linear-gradient(to right, var(--ion-color-primary) 50%, var(--ion-color-secondary) 50%);
+    height: 100%;
+}
+
+#message-1 {
+    transform: rotate(180deg);
+    align-self: center;
+    grid-area: message1;
+    justify-self: end;
+    width: 71%;
+    margin-right: -42px;
+    opacity: 0;
+}
+
+#message-2 {
+    transform: rotate(180deg);
+    align-self: center;
+    grid-area: message2;
+    justify-self: start;
+    width: 63%;
+    margin-left: -26px;
+    opacity: 0;
+}
+
+#message-3 {
+    transform: rotate(180deg);
+    align-self: center;
+    grid-area: message3;
+    justify-self: end;
+    width: 66%;
+    margin-right: -34px;
+    opacity: 0;
+}
+
+#message-4 {
+    transform: rotate(180deg);
+    align-self: center;
+    grid-area: message4;
+    justify-self: start;
+    width: 53%;
+    margin-left: -6px;
+    height: 123%;
+    opacity: 0;
+}
+
+#appName {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    top: 186px;
+    margin-left: 209px;
+    font-weight: 600;
+    opacity: 0;
+}
+
+#myName {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    top: 310px;
+    margin-left: 16px;
+    font-weight: 605;
+    opacity: 0;
+}
+
+#course {
+    position: absolute;
+    color: white;
+    font-size: 47px;
+    bottom: 280px;
+    margin-left: 256px;
+    font-weight: 600;
+    opacity: 0;
+}
+
+#utn {
+    position: absolute;
+    color: white;
+    font-size: 45px;
+    bottom: 158px;
+    margin-left: 58px;
+    font-weight: 600;
+    opacity: 0;
+}

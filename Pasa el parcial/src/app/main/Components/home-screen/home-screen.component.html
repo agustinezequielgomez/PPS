@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-button [ngStyle]="{'--color': 'white'}" mode='ios' fill="clear" (click)="this.nav.navigateRoot('/', {animationDirection: 'back'})">
+            <ion-icon name="chevron-back-sharp"></ion-icon>
+            Salir</ion-button>
+    </ion-toolbar>
+</ion-header>
+<div id="content">
+    <ion-text class="ion-text-center" color="primary">
+        <h1>Pasá el parcial</h1>
+    </ion-text>
+    <ion-card class="card" [color]="'primary'" button mode="ios" (click)="this.nav.navigateRoot('/chat/1', {animationDirection: 'forward'})">
+        <ion-card-header>
+            <ion-card-title class='ion-text-center'>PPS 4°A</ion-card-title>
+        </ion-card-header>
+        <p class='emoji'>☀️</p>
+    </ion-card>
+    <ion-card class="card" [color]="'secondary'" button mode="ios" (click)="this.nav.navigateRoot('/chat/2', {animationDirection: 'forward'})">
+        <ion-card-header>
+            <ion-card-title class='ion-text-center'>PPS 4°B</ion-card-title>
+        </ion-card-header>
+        <p class='emoji'>🌕</p>
+    </ion-card>
+</div>

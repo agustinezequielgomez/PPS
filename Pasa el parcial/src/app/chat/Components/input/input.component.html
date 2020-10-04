@@ -1,0 +1,7 @@
+<ion-item id='item' mode="ios">
+    <ion-input type="text" inputmode="text" maxlength="21" mode="ios" placeholder="Escribir..." (ionChange)="inputChange($event)" [value]='this.text'></ion-input>
+    <span [style.margin-right]="'10px'" [ngClass]="{'red': this.text.length > 11}">{{21 - this.text.length}}</span>
+    <ion-button [disabled]="this.text.length === 0" shape="round" mode="ios" size="small" expand="full" [color]='this.color' (click)="this.send()">
+        <ion-icon name="send-sharp" [style.color]="'white'"></ion-icon>
+    </ion-button>
+</ion-item>

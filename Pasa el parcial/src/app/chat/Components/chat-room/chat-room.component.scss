@@ -1,0 +1,10 @@
+#chat {
+    display: grid;
+    grid-template-areas: 'messages' 'input';
+    grid-template-rows: 93% 7%;
+    height: 94%;
+}
+
+#messages {
+    overflow-y: scroll;
+}

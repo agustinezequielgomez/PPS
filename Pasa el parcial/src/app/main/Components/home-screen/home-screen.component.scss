@@ -1,0 +1,32 @@
+ion-toolbar>ion-button {
+    --color: white;
+}
+
+#content {
+    display: grid;
+    height: 100%;
+    grid-template-areas: "title" "card1" "card2";
+    grid-template-rows: 10% 45% 45%;
+    background-color: white;
+}
+
+.card-img {
+    width: 50%;
+    display: block;
+    margin: 3% auto;
+}
+
+.card {
+    margin-bottom: 5%;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+.emoji {
+    font-size: 100px;
+    margin: 0 auto;
+    margin-left: 36%;
+    margin-top: 8%;
+}

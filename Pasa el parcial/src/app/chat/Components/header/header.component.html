@@ -1,0 +1,9 @@
+<ion-header>
+    <ion-toolbar [color]="this.color">
+        <ion-button mode='ios' fill="clear" (click)="this.nav.navigateRoot('/main', {animationDirection: 'back'})">
+            <ion-icon name="chevron-back-sharp"></ion-icon>
+        </ion-button>
+        <h1 class="ion-text-center">
+            {{this.title}}</h1>
+    </ion-toolbar>
+</ion-header>

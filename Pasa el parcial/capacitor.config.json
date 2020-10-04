@@ -1,0 +1,13 @@
+{
+  "appId": "Pasa.el.parcial",
+  "appName": "Pasa el parcial",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

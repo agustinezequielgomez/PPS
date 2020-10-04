@@ -1,0 +1,7 @@
+<app-header [title]="this.title" [color]='this.color'></app-header>
+<div id="chat">
+    <ion-content id="messages" [style.--background]="this.backgroundColor" #chat>
+        <app-message class="app-message" *ngFor="let message of this.messages" [color]='this.color' [selfMessage]="this.currentUser.email === message.sentBy" [message]='message'></app-message>
+    </ion-content>
+    <app-input [style.background-color]="this.backgroundColor" [color]='this.color' (sendMessage)='this.sendMessage($event)'></app-input>
+</div>

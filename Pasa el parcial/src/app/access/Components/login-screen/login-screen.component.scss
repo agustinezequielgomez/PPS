@@ -1,0 +1,18 @@
+#usersCol {
+    padding: 16px 9px;
+}
+
+#svg {
+    position: absolute !important;
+    z-index: -100 !important;
+}
+
+ion-toolbar {
+    --background: transparent;
+}
+
+ion-spinner {
+    margin-left: 174px;
+    transform: scale(3);
+    margin-top: 22px;
+}

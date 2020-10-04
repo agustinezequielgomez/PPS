@@ -1,0 +1,92 @@
+#loginForm {
+    width: 100%;
+}
+
+@mixin borderStyle {
+    --border-color: var(--ion-color-secondary);
+    --border-style: solid;
+    // --border-radius: 50px;
+}
+
+.form-field {
+    @include borderStyle();
+    width: 100%;
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    --highlight-color-focused: var(--ion-color-primary);
+    --highlight-color-valid: var(--ion-color-primary);
+    --highlight-color-invalid: var(--ion-color-primary);
+    --highlight-height: 1px;
+    --padding-start: 0;
+    margin-bottom: 24px;
+}
+
+#submitButton {
+    width: 100%;
+    margin-top: 15%;
+}
+
+#check {
+    margin-left: 6px;
+}
+
+#labelCheck {
+    margin-left: 12px;
+}
+
+#loginCard {
+    margin: 16px 0;
+    --background: rgba(255, 255, 255, 0.532);
+}
+
+#toggle-item {
+    width: 100%;
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    --padding-start: 0;
+    margin-bottom: 10px;
+    --inner-border-width: 0px;
+    margin-top: 3px;
+    margin-left: 27px;
+    ion-label {
+        margin-left: 10px;
+    }
+}
+
+.input-label {
+    font-size: 18px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-top: 5px;
+    margin-bottom: -5px;
+    border-top-width: 0px;
+    border-top-style: solid;
+    color: black;
+    // margin-left: 22px;
+}
+
+// ion-input {
+//     margin-left: 23px;
+// }
+.item-has-focus .label-floating.sc-ion-label-md-h {
+    color: var(--ion-color-secondary) !important;
+}
+
+#login-thumbnail {
+    --border-radius: 157px;
+    --size: 139px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    position: relative;
+    background: linear-gradient(to right, var(--ion-color-primary) 50%, var(--ion-color-secondary) 50%);
+    margin-bottom: -5px;
+}
+
+#show-password {
+    --background: rgba(255, 255, 255, 0.732);
+}
+
+#img-login {
+    width: 67%;
+    margin-left: 23px;
+}

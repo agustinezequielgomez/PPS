@@ -1,0 +1,10 @@
+<div id="message" [ngClass]="{'message-right': this.selfMessage === true}">
+    <p id="sent-by" [style.color]='this.extrasCcolor' [ngClass]="{'extras-left': this.selfMessage === false}" *ngIf="this.selfMessage === false">{{this.message.sentBy}}</p>
+    <div id="message-content" [ngClass]="{'message-container-left-primary': this.selfMessage === false && this.color === 'primary',
+                  'message-container-left-secondary': this.selfMessage === false && this.color === 'secondary',
+                  'message-container-right-primary': this.selfMessage === true && this.color === 'primary',
+                  'message-container-right-secondary': this.selfMessage === true && this.color === 'secondary'}">
+        <p id='text' [style.color]='this.textColor' class="ion-text-left">{{this.message.message}}</p>
+    </div>
+    <p id='date' [style.color]='this.extrasCcolor' [ngClass]="{'extras-left': this.selfMessage === false, 'extras-right': this.selfMessage === true}">{{this.message.sentAt | date: 'short' : '-0300' : 'es'}}</p>
+</div>

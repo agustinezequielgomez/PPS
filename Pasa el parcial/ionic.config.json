@@ -1,0 +1,9 @@
+{
+    "name": "Pasa el parcial",
+    "integrations": {
+        "capacitor": {},
+        "cordova": {}
+    },
+    "type": "angular",
+    "id": "d05042d4"
+}
