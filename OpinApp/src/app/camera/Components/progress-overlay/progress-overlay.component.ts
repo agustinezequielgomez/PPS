@@ -27,7 +27,7 @@ export class ProgressOverlayComponent implements OnInit, AfterViewInit {
   constructor(private share: DataShareService, public nav: NavController) { }
 
   async ngOnInit() {
-    timer(1500).subscribe(() => this.share.UploadPhotosStatus = 'success');
+    // timer(1500).subscribe(() => this.share.UploadPhotosStatus = 'success');
     this.share.UploadPhotosStatusObservable.subscribe(async (value) => {
       if (value === 'success') {
         this.mode = 'determinate';

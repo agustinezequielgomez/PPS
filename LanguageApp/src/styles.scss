@@ -17,6 +17,6 @@ $dynamic-theme: dynamic-theme($dynamic-primary, $dynamic-accent, $dynamic-warn, 
 @include angular-material-theme($dynamic-theme);
 /////////////////////////////////////////
 @font-face {
-    font-family: billy;
-    src: url(assets/fonts/billy.ttf) format("opentype");
+    font-family: BaksoSapi;
+    src: url(assets/fonts/BaksoSapi.otf) format("opentype");
 }

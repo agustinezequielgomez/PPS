@@ -14,7 +14,7 @@
                             <ion-input class="form-input" mode="ios" required formControlName="userName" type="text"></ion-input>
                         </ion-item>
                         <ion-item class="form-field">
-                            <ion-label class="input-label" position="stacked">Contrasenia
+                            <ion-label class="input-label" position="stacked">Contraseña
                                 <ion-text color="danger">*</ion-text>
                             </ion-label>
                             <ion-input class="form-input" mode="ios" required formControlName="password" type="{{this.passwordInputType}}"></ion-input>
@@ -25,7 +25,7 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label class="controlLabel">Mostrar contrasenia</ion-label>
+                        <ion-label class="controlLabel">Mostrar contraseña</ion-label>
                         <ion-toggle id="toggle" slot="start" mode="ios" (ionChange)="this.togglePasswordInput()"></ion-toggle>
                     </ion-item>
                 </ion-col>
@@ -33,7 +33,7 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label class="controlLabel" id="labelCheck">Recordar contrasenia</ion-label>
+                        <ion-label class="controlLabel" id="labelCheck">Recordar contraseña</ion-label>
                         <ion-checkbox id="check" slot="start" mode="ios" [checked]="this.rememberUser" (ionChange)="this.toggleRememberUser()"></ion-checkbox>
                     </ion-item>
                 </ion-col>

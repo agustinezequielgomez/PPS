@@ -69,11 +69,15 @@
 }
 
 @font-face {
-    font-family: billy;
-    src: url(assets/fonts/billy.ttf) format("opentype");
+    font-family: BaksoSapi;
+    src: url(assets/fonts/BaksoSapi.otf) format("opentype");
 }
 
 .select-popover .selectOption {
     --color: var(--ion-color-tertiary);
     --background: var(--ion-color-secondary);
+}
+
+.select-interface-option.sc-ion-select-popover {
+    font-size: 10px;
 }
