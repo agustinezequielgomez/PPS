@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TestUser } from 'src/app/core/Models/Classes/test-user';
-import { User } from '../../../core/Models/Classes/user';
+import { DBUserDocument } from '../../../core/Models/Classes/user';
 import { DataBaseCollections } from '../../../core/Models/Enums/data-base-collections.enum';
 import { StorageKeys } from '../../../core/Models/Enums/storage-keys.enum';
 import { AuthService } from '../../../core/Services/auth.service';
-import { DataShareService } from '../../../core/Services/data-share.service';
+import { DataStoreService } from '../../../core/Services/data-store.service';
 import { DatabaseService } from '../../../core/Services/database.service';
 import { NotificationService } from '../../../core/Services/notification.service';
 import { StorageService } from '../../../core/Services/storage.service';
@@ -28,20 +29,31 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  constructor(private auth: AuthService, private dataBase: DatabaseService,
-              private notification: NotificationService, private storage: StorageService, private share: DataShareService) { }
+  constructor(private auth: AuthService, private dataBase: DatabaseService, private router: Router,
+              private notification: NotificationService, private storage: StorageService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.loginForm = new FormGroup({
       userName: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required)
     });
-
-    this.share.TestUserObservable.subscribe((user) => {
-      if (user !== null) {
-        this.SetUser = user;
+    try {
+      if (await this.storage.storageIsSet(StorageKeys.UID)) {
+        await this.storage.deleteStorage(StorageKeys.UID);
       }
-    });
+      if (await this.storage.storageIsSet(StorageKeys.TOKEN)) {
+        await this.storage.deleteStorage(StorageKeys.TOKEN);
+      }
+
+      DataStoreService.Access.TestUserObservable.subscribe((user) => {
+        if (user !== null) {
+          console.log(`SELECTED USER ${JSON.stringify(user)}`);
+          this.SetUser = user;
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   togglePasswordInput(): void {
@@ -54,13 +66,16 @@ export class LoginFormComponent implements OnInit {
 
   public async login() {
     try {
-      const USER = await this.auth.signInWithEmail(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value);
-      console.log(this.rememberUser);
-      await this.storage.setStorage(StorageKeys.USER, await this.dataBase.getDocumentData<User>(DataBaseCollections.users, USER.uid));
+      const USER = await this.auth.signInWithEmail(this.loginForm.controls['userName'].value,
+                         this.loginForm.controls['password'].value.toString());
+                         console.log(USER.uid);
+      DataStoreService.User.CurrentUser = (await this.dataBase.getDocumentData<DBUserDocument>(DataBaseCollections.users, USER.uid)).user;
       if (this.rememberUser) {
-        console.log(`REMEMBER USER: ${USER.refreshToken}`);
         await this.storage.setStorage(StorageKeys.TOKEN, USER.refreshToken);
+        await this.storage.setStorage(StorageKeys.UID, USER.uid);
       }
+      await this.notification.pushNotificationsInit();
+      // this.router.navigate(['']);
     } catch (ex) {
       const ERROR: {a: any, code: string, message: string, stack: string} = ex;
       let errorMessage = '';

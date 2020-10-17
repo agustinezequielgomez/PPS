@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  FCM_URL: 'https://fcm.googleapis.com/fcm/send',
+  FCM_SERVER_KEY: 'AAAAs8AD9VI:APA91bEeMv-EuWV7Tr-bK9PYwhgXpE2GnGnS42tOef_ny3l2FVKnZPwENT7jsYHnu5dx99kicbagwRhJofsB_t0LI5ox-xAN3tgQAM6P4pa14NZypXKX4GHgoo3DhC6ZL_mRKN5gPQVU',
   firebase: {
     apiKey: 'AIzaSyD3l8NyLBI-uTUpSb7YkjBq1xumn4ql9X0',
     authDomain: 'pps-2020.firebaseapp.com',

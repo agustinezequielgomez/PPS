@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "772020630866",
+    "firebase_url": "https://pps-2020.firebaseio.com",
+    "project_id": "pps-2020",
+    "storage_bucket": "pps-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772020630866:android:4d986998f01de8328eb68b",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772020630866-jn238a7nc3erp4r6i94mjrvq77jsnecb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOkyOapw68-JRuZz8TWHQ060xKcWqX7Lg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772020630866-jn238a7nc3erp4r6i94mjrvq77jsnecb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -105,7 +105,7 @@ export class DatabaseService {
     );
   }
 
-  public async setUpdateDocument<T>(collection: string, documentId: string, object: T): Promise<void> {
+  public async saveDocument<T>(collection: string, documentId: string, object: T): Promise<void> {
     if (await this.documentExists(collection, documentId)) {
       return this.updateDocument<T>(collection, documentId, object);
     } else {

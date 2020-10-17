@@ -3,7 +3,7 @@ import { AndroidPermissions as PermissionService } from '@ionic-native/android-p
 import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
 import { AppConfig, StatusBar as StatusBarModel } from '../../Models/Classes/app-config';
 import { StorageKeys } from '../../Models/Enums/storage-keys.enum';
-import { DataShareService } from '../data-share.service';
+import { DataStoreService } from '../data-store.service';
 import { IConfigService } from '../Interfaces/iconfig-service';
 import { StorageService } from '../storage.service';
 import { Plugins, StatusBarAnimation } from '@capacitor/core';
@@ -15,14 +15,14 @@ const { StatusBar } = Plugins;
 export class AndroidConfigService implements IConfigService {
 
   constructor(private storage: StorageService, private navBar: NavigationBar,
-              private permissions: PermissionService, private dataShare: DataShareService) { }
+              private permissions: PermissionService) { }
 
   async loadAppConfiguration(): Promise<void> {
     try {
       const config = await this.storage.getStorage<AppConfig>(StorageKeys.CONFIG);
       await this.customizeStatusBar(config.statusBar);
       await this.getPermisions(config.permissions);
-      this.dataShare.SetFullScreen = (config.navigationBar && config.statusBar.enabled);
+      DataStoreService.Configuration.SetFullScreen = (config.navigationBar && config.statusBar.enabled);
       console.log('reached the end withour erroring!');
     } catch (error) {
       console.error(error);
@@ -31,14 +31,14 @@ export class AndroidConfigService implements IConfigService {
 
   async toggleFullScreenMode() {
     try {
-      if (this.dataShare.IsFullScreen) {
+      if (DataStoreService.Configuration.IsFullScreen) {
         await StatusBar.hide({animation: StatusBarAnimation.Fade});
         await this.navBar.setUp(true);
-        this.dataShare.SetFullScreen = true;
+        DataStoreService.Configuration.SetFullScreen = true;
       } else {
         await StatusBar.show({animation: StatusBarAnimation.Fade});
         await this.navBar.setUp(false);
-        this.dataShare.SetFullScreen = false;
+        DataStoreService.Configuration.SetFullScreen = false;
       }
     } catch (error) {
       console.error(error);
